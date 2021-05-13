@@ -1,0 +1,12 @@
+.flex{
+    display: flex;
+}
+.center_row{
+justify-content: center;
+}
+center_colonne{
+    align-items: center;
+}
+form {
+    width: 300px;
+}
