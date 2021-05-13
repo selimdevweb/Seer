@@ -26,3 +26,4 @@ Route::get('/connexion', [LoginController::class, 'index'])->name('login')->midd
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard')->middleware('auth');
 /* Route::get('/deconnexion', [LogoutController::class, 'destroy'])->name('user.logout')->middleware('auth'); */
 
+/* Git Push */
