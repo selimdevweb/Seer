@@ -11,7 +11,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('inscription') }}">Inscription</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('connexion') }}">Connexion</a>
+                        <a class="nav-link" href="{{ route('login') }}">Connexion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Déconnexion</a>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/inscription', [RegisterController::class, 'index'])->name('inscription');
-Route::post('/inscription', [RegisterController::class, 'store'])->name('inscription.store');
-Route::get('/connexion', [LoginController::class, 'index'])->name('connexion');
+Route::get('/inscription', [RegisterController::class, 'index'])->name('inscription')->middleware('guest');
+Route::post('/inscription', [RegisterController::class, 'store'])->name('inscription.store')->middleware('guest');
+Route::get('/connexion', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard')->middleware('auth');
+/* Route::get('/deconnexion', [LogoutController::class, 'destroy'])->name('user.logout')->middleware('auth'); */
 

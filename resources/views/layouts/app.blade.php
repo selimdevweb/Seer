@@ -10,7 +10,7 @@
     <body>
         @include('layouts.header')
 
-        <main>
+        <main class="px-2">
             <section>
                 @yield('content')
             </section>
