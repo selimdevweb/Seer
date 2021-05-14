@@ -13,14 +13,14 @@ class RegisterController extends Controller
 
     public function store(Request $request){
         $this->validate($request, [
-            'nom'=>'required|max:255',
-            'prenom'=>'required|max:255',
+            'nom'=>'required|max:10',
+            'prenom'=>'required|max:10',
             'email'=>'required|email|max:255',
             'password'=>'required|confirmed',
             'rgpd'=>'required',
         ]);
 
-        User::create([
+       /*  User::create([
             'nom'=>$request->nom,
             'prenom'=>$request->prenom,
             'rgpd'=>$request->rgpd,
@@ -30,6 +30,6 @@ class RegisterController extends Controller
 
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect()->route('user.dashboard');
+        return redirect()->route('user.dashboard'); */
     }
 }
