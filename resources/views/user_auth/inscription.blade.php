@@ -46,10 +46,10 @@
                     </div>
             @enderror
             <div class="mb-3">
-                <input type="password" class="form-control" name="password" placeholder="Votre Mot de Passe">
+                <input type="password" class="form-control" name="password" placeholder="Votre mot de passe">
             </div>
 
-           @error('password_confirmation')
+        @error('password_confirmation')
                     <div class="error">
                         {{ $message }}
                     </div>
@@ -57,8 +57,6 @@
             <div class="mb-3">
                 <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmez votre mot de passe">
             </div>
-
-
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" name="rgpd" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
