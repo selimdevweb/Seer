@@ -9,7 +9,7 @@
     </head>
     <body>
         @include('layouts.header')
-
+        <img src="{{ asset('images/logo.png') }}" alt="pas d'image">
         <main class="px-2">
             <section>
                 @yield('content')

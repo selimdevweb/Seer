@@ -35,7 +35,31 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            /* valider ce que l'on reçoit  */
+            $request->validate([
+                'rgpd' => 'required',
+                'image' => 'required|mimes:pdf|max:5048'
+            ]);
+
+            /* donnner un id uniuqe à l'image avec le chemin et l'extension */
+            $newImageName = uniqid().'-'.$request->title.'.'.$request->image->extension();
+
+            /* déplacer l'image dans le dossier image */
+            $request->image->move(public_path('images'), $newImageName);
+
+            /* création d'un slug */
+
+            /* création d'une publication dans la base de donnée   */
+            Post::create([
+                'rgpd' => $request->input('rgpd'),
+                'image_path' => $newImageName,
+                'user_id' => auth()->user()->id,
+            ]);
+
+            /* afficage de confirmation */
+
+            return redirect('/')->with('message', 'Vos Documents sont bien envoyés');
+
     }
 
     /**

@@ -22,8 +22,13 @@ Route::get('/', function () {
 
 Route::get('/inscription', [RegisterController::class, 'index'])->name('inscription')->middleware('guest');
 Route::post('/inscription', [RegisterController::class, 'store'])->name('inscription.store')->middleware('guest');
+
+
 Route::get('/connexion', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard')->middleware('auth');
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard')/* ->middleware('auth') */;
+Route::post('/dashboard', [LoginController::class, 'store'])->name('file.store')/* ->middleware('auth') */;
 /* Route::get('/deconnexion', [LogoutController::class, 'destroy'])->name('user.logout')->middleware('auth'); */
 
 /* Git Push2 */
