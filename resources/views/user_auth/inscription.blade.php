@@ -67,7 +67,6 @@
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
-        <h1>coucouc</h1>
     </div>
 @endsection
 
