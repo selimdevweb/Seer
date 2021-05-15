@@ -9,7 +9,11 @@
     </head>
     <body>
         @include('layouts.header')
-        <img src="{{ asset('images/logo.png') }}" alt="pas d'image">
+
+        <div class="logo">
+            <img src="{{ asset('images/logo.png') }}"  alt="Logo Seer">
+        </div>
+
         <main class="px-2">
             <section>
                 @yield('content')

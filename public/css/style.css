@@ -1,3 +1,9 @@
+body{
+    /* background-color: black; */
+}
+h1{
+    margin-bottom: 30px;
+}
 .flex{
     display: flex;
 }
@@ -27,6 +33,20 @@ form {
 #customFile{
 display: none;
 }
+.logo{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    margin-bottom: 50px;
+}
+.error{
+    margin: 0;
+    padding: 5px;
+    background: #D90404;
+    border: 2px solid #D90404 !important;
+    color: white;
+}
+
 .file{
     height: 50px;
     width: 150px;
