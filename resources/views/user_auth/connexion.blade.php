@@ -16,7 +16,7 @@
                     </div>
             @enderror
             <div class="mb-3">
-                <input type="email" class="form-control"  name="mail" placeholder="Votre adresse mail" value="{{ old('mail') }}">
+                <input type="email" class="form-control"  name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
             </div>
 
             @error('password')

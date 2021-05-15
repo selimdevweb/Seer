@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 
 class LogoutController extends Controller
 {
-    public function store(){
+    public function destroy(){
         auth()->logout();
 
-        return redirect()->route('/');
+        return redirect('/');
     }
 }

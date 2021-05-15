@@ -11,7 +11,7 @@
             @csrf
 
             <div class="mb-3">
-                <input type="text" class="form-control name="nom" placeholder="Votre Nom" value="{{ old('nom') }}">
+                <input type="text" class="form-control" name="nom" placeholder="Votre Nom" value="{{ old('nom') }}">
 
                 @error('nom')
                     <div class="error">
@@ -33,7 +33,7 @@
 
 
             <div class="mb-3">
-                <input type="email" class="form-control"  name="mail" placeholder="Votre adresse mail" value="{{ old('mail') }}">
+                <input type="email" class="form-control"  name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
 
                 @error('email')
                 <div class="error">
@@ -63,11 +63,15 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" name="rgpd" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value=2 name="rgpd" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information de la CNIL. Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter. En savoir plus sur la gestion de vos données et vos droits
-                </label>
+                    Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information de la CNIL.</label>
             </div>
+            @error('rgpd')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                @enderror
 
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>

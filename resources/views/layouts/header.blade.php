@@ -14,7 +14,7 @@
                         <a class="nav-link" href="{{ route('login') }}">Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Déconnexion</a>
+                        <a class="nav-link" href="{{ route('user.logout') }}">Déconnexion</a>
                     </li>
 {{--                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

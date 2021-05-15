@@ -6,10 +6,10 @@
 
 @section('content')
     <h1>Mon compte</h1>
-    <form action="#" method="POST" class="d-flex flex-column justify-content-between align-items-center">
+    <form action="{{ route('file.store') }}" method="POST" class="d-flex flex-column justify-content-between align-items-center"  enctype="multipart/form-data">
         @csrf
         <div class="custom-file">
-            <input type="file" id="customFile" name="image_path">
+            <input type="file" id="customFile" name="file_path">
             <label class="file flex center_colonne center_row" for="customFile">Envoyer un fichier</label>
         </div>
         <div class="form-check">

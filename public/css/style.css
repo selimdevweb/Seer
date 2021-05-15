@@ -40,8 +40,8 @@ display: none;
     margin-bottom: 50px;
 }
 .error{
-    margin: 0;
-    padding: 5px;
+    margin-bottom: 5px;
+    padding: 2px;
     background: #D90404;
     border: 2px solid #D90404 !important;
     color: white;
