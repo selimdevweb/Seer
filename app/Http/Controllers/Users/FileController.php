@@ -37,11 +37,12 @@ class FileController extends Controller
     public function store(Request $request)
     {
 
+        ddd($request->file_path);
          /* valider ce que l'on reçoit  */
          $request->validate([
-            'file_path' => 'required|mimes:application/pdf'
+            'file_path' => 'required|mimes:jpeg,png,pdf|max:10000000'
         ]);
-        ddd($request->file_path);
+
         /* donnner un id uniuqe à l'image avec le chemin et l'extension */
         $newpdf = uniqid().'-'.$request->file_path.'.'. $request->file_path->extension();
 
