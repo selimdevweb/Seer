@@ -39,12 +39,12 @@ class FileController extends Controller
 
          /* valider ce que l'on reçoit  */
          $request->validate([
-            'file_path' => 'required|mimes:Application/pdf'
+            'file_path' => 'required|mimes:application/pdf'
         ]);
-
+        ddd($request->file_path);
         /* donnner un id uniuqe à l'image avec le chemin et l'extension */
         $newpdf = uniqid().'-'.$request->file_path.'.'. $request->file_path->extension();
-        ddd($newpdf);
+
         /* déplacer l'image dans le dossier image */
         $request->file_path->move(public_path('pdf'), $newpdf);
 

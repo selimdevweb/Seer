@@ -12,6 +12,9 @@
             <input type="file" id="customFile" name="file_path">
             <label class="file flex center_colonne center_row" for="customFile">Envoyer un fichier</label>
         </div>
+       @error('file_path')
+{{ $message }}
+       @enderror
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="accept" name="rgpd" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
