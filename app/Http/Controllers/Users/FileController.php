@@ -37,24 +37,25 @@ class FileController extends Controller
     public function store(Request $request)
     {
 
-        ddd($request->file_path);
+        /* ddd($request->file_path); */
+
          /* valider ce que l'on reçoit  */
-         $request->validate([
+        $request->validate([
             'file_path' => 'required|mimes:jpeg,png,pdf|max:10000000'
         ]);
 
         /* donnner un id uniuqe à l'image avec le chemin et l'extension */
-        $newpdf = uniqid().'-'.$request->file_path.'.'. $request->file_path->extension();
+        /* $newpdf = uniqid().'-'.$request->file_path.'.'. $request->file_path->extension(); */
 
         /* déplacer l'image dans le dossier image */
-        $request->file_path->move(public_path('pdf'), $newpdf);
-
+       /*  $request->file_path->move(public_path('pdf'), $newpdf); */
+            $newName = 'test.' . $request->file_path->extension();
 
         /* création d'un slug */
 
         /* création d'une publication dans la base de donnée   */
         File::create([
-            'file_path' => $newpdf,
+            'file_path' => $newName,
             'user_id' => auth()->user()->id,
         ]);
 
