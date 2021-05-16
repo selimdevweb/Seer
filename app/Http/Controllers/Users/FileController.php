@@ -48,12 +48,8 @@ class FileController extends Controller
         /* donnner un id uniuqe à l'image avec le chemin et l'extension */
         $newpdf = uniqid().'-'.$request->file_path.'.'. $request->file_path->extension();
 
-        ddd($newpdf);
+
         /* déplacer l'image dans le dossier image */
-        $request->file_path->move(public_path('pdf'), $newpdf);
-
-
-        /* création d'un slug */
 
         /* création d'une publication dans la base de donnée   */
         File::create([
