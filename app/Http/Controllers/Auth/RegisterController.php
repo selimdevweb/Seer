@@ -23,7 +23,7 @@ class RegisterController extends Controller
             'rgpd'=>'required',
         ]);
 
-     User::create([
+        User::create([
             'nom'=>$request->nom,
             'prenom'=>$request->prenom,
             'rgpd'=>$request->rgpd,

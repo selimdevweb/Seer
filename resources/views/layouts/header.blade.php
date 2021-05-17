@@ -19,6 +19,9 @@
                     @endguest
                     @auth
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.dashboard') }}">User Dashboard</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.logout') }}">Déconnexion</a>
                         </li>
                     @endauth

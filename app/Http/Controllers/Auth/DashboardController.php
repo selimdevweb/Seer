@@ -15,11 +15,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $files = DB::table('files')
+        if (auth()->user()->role==0){
+
+            $files = DB::table('files')
             ->where('user_id', auth()->user()->id)
             ->orderBy('updated_at', 'DESC')
             ->get();
-        return view('user_auth.dashboard')->with('files', $files);
+
+            return view('user_auth.dashboard')->with('files', $files);
+        }
+        else if (auth()->user()->role==1)
+            return redirect('/admin-dashboard');
     }
 
     /**

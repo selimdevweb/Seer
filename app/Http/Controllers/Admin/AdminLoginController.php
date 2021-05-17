@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class AdminLoginController extends Controller
 {
     public function index(){
-        return view('user_auth.login');
+        return view('admin_auth.login');
     }
 
     public function store(Request $request){
@@ -18,11 +18,10 @@ class LoginController extends Controller
             'password'=>'required'
         ]);
 
-
-            /* Optimisation  role*/
-        if (!auth()->attempt($request->only('email', 'password'), $request->remember))
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
             return back()->with('status','invalid login details');
+        }
 
-        return redirect()->route('user.dashboard');
+        return redirect()->route('admin.dashboard');
     }
 }

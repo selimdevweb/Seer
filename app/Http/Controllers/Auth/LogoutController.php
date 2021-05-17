@@ -7,8 +7,12 @@ use App\Http\Controllers\Controller;
 class LogoutController extends Controller
 {
     public function destroy(){
-        auth()->logout();
 
-        return redirect('/');
+        if (auth()->user()->role==0){
+            auth()->logout();
+            return redirect('/');
+        }
+        else
+            return redirect('/admin.dashboard');
     }
 }
