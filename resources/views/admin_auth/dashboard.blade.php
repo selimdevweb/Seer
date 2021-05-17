@@ -15,15 +15,15 @@
     @endif
 
         <div class="d-flex justify-content-center">
-            <form action="#" method="post" class="form-group" >
+            <form action="{{ route('admin.billetterie.store') }}" method="post" class="form-group" >
+                @csrf
                 <h3>Billeterie</h3>
 
                 <h4>Parametres de la billeterie</h4>
                 <input type="number" name="quantite" placeholder="Quantité">
                 <input type="number" name="prix" placeholder="Prix">
-                <input type="datetime-local" name="date_distri" id="debut">
-                <input type="time" name="" id="">
-
+                <input type="datetime-local" name="date" id="debut">
+                <input type="time" name="heure_fin" id="">
                 <input type="submit" value="Créér">
             </form>
         </div>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Billetterie;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class AdminBilleterie extends Controller
+class BilletterieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +36,23 @@ class AdminBilleterie extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'quantite' => 'required',
+            'prix' => 'required',
+            'date' => 'required',
+            'heure_fin' => 'required'
+        ]);
+
+        Billetterie::create([
+            'titre' => $titre = 'Billeterie du ' . $request->input('date'),
+            'quantite' => $request->input('quantite'),
+            'prix' => $request->input('prix'),
+            'date' => $request->input('date'),
+            'heure_fin' => $request->input('heure_fin'),
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect('/admin-dashboard');
     }
 
     /**

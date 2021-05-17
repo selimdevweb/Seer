@@ -14,7 +14,7 @@ class CreateFilesTable extends Migration
     public function up()
     {
         Schema::create('files', function (Blueprint $table) {
-            $table->id();{{  }}
+            $table->id();
             $table->string('file_path');
             $table->foreignId('user_id')->constrained()->OnDelete('cascade')->references('id')->on('users');
             $table->timestamps();
