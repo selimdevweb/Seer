@@ -40,11 +40,17 @@ class FileController extends Controller
 
          /* valider ce que l'on reçoit  */
          $request->validate([
-            'file_path' => 'required|mimes:jpeg,png,pdf|max:10000000'
+            'file_path' => 'required|mimes:pdf|max:2000000'
         ]);
 
+        $nom = $_FILES['file_path']['name'];
+
+        $date = date('m/d/Y');
+        /* $request->file('file_path')->getClientOriginalName() */
+
         /* donnner un id uniuqe à l'image avec le chemin et l'extension */
-        $newpdf = uniqid().'.'. $request->file_path->extension();
+       /*  $newpdf = auth()->user()->nom.'_'.auth()->user()->prenom.'_'.$nom.'_'.uniqid().'.'. $request->file_path->extension(); */
+       $newpdf = auth()->user()->nom.'_'.auth()->user()->prenom.'_'.$date.'.'. $nom;
 
         $request->file_path->move(public_path('pdf'), $newpdf);
         /* déplacer l'image dans le dossier image */

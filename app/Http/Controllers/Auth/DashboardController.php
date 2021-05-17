@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -14,7 +15,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('user_auth.dashboard');
+        $files = DB::table('files')
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('updated_at', 'DESC')
+            ->get();
+        return view('user_auth.dashboard')->with('files', $files);
     }
 
     /**

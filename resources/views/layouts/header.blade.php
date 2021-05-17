@@ -7,15 +7,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
+                    @guest
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('inscription') }}">Inscription</a>
                     </li>
+                    @endguest
+                    @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Connexion</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.logout') }}">Déconnexion</a>
-                    </li>
+                    @endguest
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.logout') }}">Déconnexion</a>
+                        </li>
+                    @endauth
 {{--                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Dropdown link

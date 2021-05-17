@@ -7,11 +7,12 @@
 @section('content')
     <h1>Mon compte</h1>
     @if (session()->has('message'))
-    <div class="w-4/5 m-auto mt-10 pl-2">
-        <p class="w2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl px-4 py-4">
-            {{ session()->get('message') }}
-        </p>
-    </div>
+        <div class="w-4/5 m-auto mt-10 pl-2">
+            <p class="w2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl px-4 py-4">
+                {{ session()->get('message') }}
+            </p>
+        </div>
+    @endif
     <form action="{{ route('file.store') }}" method="POST" class="d-flex flex-column justify-content-between align-items-center"  enctype="multipart/form-data">
         @csrf
         <div class="custom-file">
@@ -30,5 +31,21 @@
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
 
-    <embed src=http://monsite.fr/monfichier.pdf width=800 height=500 type='application/pdf'/>
+    <div class="d-flex flex-column">
+        @foreach ($files as $file)
+
+            <div class="d-flex flex-column justify-content-center align-items-center w-100">
+                {{-- <a class="m-2" href="{{ asset('pdf') . '/'. $file->file_path }}">
+                    <embed src='{{ asset('pdf') . '/'. $file->file_path }}' width=150 height=200 type='application/pdf'/>
+                </a> --}}
+                <h2>{{ $file->file_path }}</h2>
+                <a class="m-2" href="{{ asset('pdf') . '/'. $file->file_path }} " target="blank">Voir pdf</a>
+                <a href="">Supprimer Pdf</a>
+            </div>
+        @endforeach
+    </div>
+
+
+
+
 @endsection
