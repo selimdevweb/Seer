@@ -14,10 +14,6 @@
         </div>
     @endif
 
-    foreach
-editer supprimer
-    end
-
         <div class="d-flex justify-content-center">
             <form action="#" method="post" class="form-group" >
                 <h3>Billeterie</h3>
