@@ -28,6 +28,9 @@ form {
     width: 300px;
     height: 300px;
 }
+input{
+    width: 100%;
+}
 #customFile{
 display: none;
 }
@@ -67,4 +70,22 @@ input{
     width: 300px;
     margin: 5px;
     padding: 5px;
+}
+
+.boutton_edit{
+    height: 30px;
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.boutton_edit button {
+    border: none;
+    background-color: inherit;
+    color: white;
+}
+.boutton_edit button:hover {
+    text-decoration: underline;
 }

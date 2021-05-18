@@ -14,11 +14,12 @@ class CreateBilletteriesTable extends Migration
     public function up()
     {
         Schema::create('billetteries', function (Blueprint $table) {
+            $table->id();
             $table->string('titre');
             $table->integer('quantite');
             $table->integer('prix');
-            $table->dateTime('date');
-            $table->time('heure_fin');
+            $table->dateTimeTz('date');
+            $table->timeTz('heure_fin');
             $table->foreignId('admin_id')->references('id')->on('users');
             $table->timestamps();
         });

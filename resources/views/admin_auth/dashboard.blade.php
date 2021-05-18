@@ -14,6 +14,27 @@
         </div>
     @endif
 
+        <div class="d-flex flex-row justify-content-center">
+            @foreach ($billetteries as $billetterie)
+                <div class="d-flex flex-column justify-content-center align-items-center bg-dark text-white p-2 m-1">
+                    <h6>{{ $billetterie->titre }}</h6>
+                    <div class="d-flex justify-content-center ">
+                        <form class="boutton_edit" action="" method="post">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit">Editer</button>
+                        </form>
+                        <form class="boutton_edit" action="" method="post">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit">Supprimer</button>
+                        </form>
+                    </div>
+                    <h6>Auteur : {{ $billetterie->nom }} {{ $billetterie->prenom }}</h6>
+                </div>
+            @endforeach
+        </div>
+
         <div class="d-flex justify-content-center">
             <form action="{{ route('admin.billetterie.store') }}" method="post" class="form-group" >
                 @csrf

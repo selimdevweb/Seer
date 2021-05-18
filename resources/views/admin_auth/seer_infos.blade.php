@@ -14,8 +14,6 @@
         </div>
     @endif
 
-
-
         <div class="d-flex justify-content-center">
             <form action="#" method="post" class="form-group" >
                 <h4>Infos Billeterie</h4>
