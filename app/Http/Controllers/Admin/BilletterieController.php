@@ -49,7 +49,7 @@ class BilletterieController extends Controller
             'prix' => $request->input('prix'),
             'date' => $request->input('date'),
             'heure_fin' => $request->input('heure_fin'),
-            'user_id' => auth()->user()->id
+            'admin_id' => auth()->user()->id
         ]);
 
         return redirect('/admin-dashboard');

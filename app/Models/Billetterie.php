@@ -15,7 +15,7 @@ class Billetterie extends Model
         'prix',
         'date',
         'heure_fin',
-        'user_id'
+        'admin_id'
     ];
 
 }
