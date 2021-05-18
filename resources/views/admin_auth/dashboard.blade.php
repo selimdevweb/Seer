@@ -17,16 +17,13 @@
         <div class="d-flex flex-row justify-content-center">
             @foreach ($billetteries as $billetterie)
                 <div class="d-flex flex-column justify-content-center align-items-center bg-dark text-white p-2 m-1">
-                    <h6>{{ $billetterie->titre }}</h6>
-                    <div class="d-flex justify-content-center ">
+                    <h6>Billeterie du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d F Y') }}
+                    </h6>
+                    <div class="d-flex justify-content-center align-items-center ">
+                        <a href="{{ route('admin.billetterie.edit', $billetterie->id) }}" class="text-white">Editer</a>
                         <form class="boutton_edit" action="" method="post">
                             @csrf
-                            @method('PUT')
-                            <button type="submit">Editer</button>
-                        </form>
-                        <form class="boutton_edit" action="" method="post">
-                            @csrf
-                            @method('PUT')
+                            @method('DELETE')
                             <button type="submit">Supprimer</button>
                         </form>
                     </div>

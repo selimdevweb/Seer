@@ -62,8 +62,8 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::get('/admin-billetterie', [BilletterieController::class, 'index'])->name('admin.billetterie')->middleware('auth');
     Route::post('/admin-billetterie', [BilletterieController::class, 'store'])->name('admin.billetterie.store')->middleware('auth');
 
-    Route::get('/admin-billetterie/{id}', [BilletterieController::class, 'edit'])->name('admin.billetterie.edit')->middleware('auth');/*
-    Route::post('/admin-billetterie/{id}', [BilletterieController::class, 'update'])->name('admin.billetterie.update')->middleware('auth'); */
+    Route::get('/admin-billetterie/{id}', [BilletterieController::class, 'edit'])->name('admin.billetterie.edit')->middleware('auth');
+    Route::post('/admin-billetterie/{id}', [BilletterieController::class, 'update'])->name('admin.billetterie.update')->middleware('auth');
 
 
     //SEER INFOS
