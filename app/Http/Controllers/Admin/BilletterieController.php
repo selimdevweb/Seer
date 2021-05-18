@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Billetterie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class BilletterieController extends Controller
@@ -44,7 +45,7 @@ class BilletterieController extends Controller
         ]);
 
         Billetterie::create([
-            'titre' => $titre = 'Billeterie du ' . $request->input('date'),
+            'titre' => $titre = 'Billetterie du ' . $request->input('date'),
             'quantite' => $request->input('quantite'),
             'prix' => $request->input('prix'),
             'date' => $request->input('date'),
@@ -74,7 +75,11 @@ class BilletterieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $billetterie = DB::table('billetteries')
+        ->where('id', $id)
+        ->first();
+
+        return view('admin_auth.billetterie_update')->with('billetterie', $billetterie);
     }
 
     /**
@@ -86,7 +91,24 @@ class BilletterieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'quantite' => 'required',
+            'prix' => 'required',
+            'date' => 'required',
+            'heure_fin' => 'required'
+        ]);
+
+        Billetterie::where('id', $request->id)
+        ->update([
+            'titre' => $titre = 'Billeterie du ' . $request->input('date'),
+            'quantite' => $request->input('quantite'),
+            'prix' => $request->input('prix'),
+            'date' => $request->input('date'),
+            'heure_fin' => $request->input('heure_fin'),
+            'admin_id' => auth()->user()->id
+        ]);
+
+        return redirect('/admin-dashboard');
     }
 
     /**
@@ -97,6 +119,7 @@ class BilletterieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id ->delete();
+        return redirect('/admin-dashboard');
     }
 }
