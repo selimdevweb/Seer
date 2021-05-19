@@ -13,6 +13,7 @@
             </p>
         </div>
     @endif
+
     <form action="{{ route('file.store') }}" method="POST" class="d-flex flex-column justify-content-between align-items-center"  enctype="multipart/form-data">
         @csrf
         <div class="custom-file">
@@ -20,13 +21,15 @@
             <label class="file flex center_colonne center_row" for="customFile">Envoyer un fichier</label>
         </div>
        @error('file_path')
-{{ $message }}
+        {{ $message }}
        @enderror
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="accept" name="rgpd" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information de la CNIL.
-            </label>
+            <div class="d-flex flex-row">
+                <input class="" type="checkbox" value="accept" name="rgpd" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information de la CNIL.
+                </label>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
@@ -39,7 +42,7 @@
                     <embed src='{{ asset('pdf') . '/'. $file->file_path }}' width=150 height=200 type='application/pdf'/>
                 </a> --}}
                 <h2>{{ $file->file_path }}</h2>
-                <a class="m-2" href="{{ asset('pdf') . '/'. $file->file_path }} " target="blank">Voir pdf</a>
+                <a class="m-2" href="{{ asset('pdf/'.$file->file_path) }} " target="blank">Voir pdf</a>
                 <a href="">Supprimer Pdf</a>
             </div>
         @endforeach

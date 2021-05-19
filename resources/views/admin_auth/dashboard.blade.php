@@ -26,8 +26,8 @@
                             @method('DELETE')
                             <button type="submit">Supprimer</button>
                         </form>
-                    </div>
-                    <h6>Auteur : {{ $billetterie->nom }} {{ $billetterie->prenom }}</h6>
+                    </div>{{--
+                    <h6>Auteur : {{ $billetterie->nom }} {{ $billetterie->prenom }}</h6> --}}
                 </div>
             @endforeach
         </div>

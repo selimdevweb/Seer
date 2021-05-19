@@ -18,8 +18,8 @@ class CreateBilletteriesTable extends Migration
             $table->string('titre');
             $table->integer('quantite');
             $table->integer('prix');
-            $table->dateTimeTz('date');
-            $table->timeTz('heure_fin');
+            $table->string('date');
+            $table->time('heure_fin');
             $table->foreignId('admin_id')->references('id')->on('users');
             $table->timestamps();
         });

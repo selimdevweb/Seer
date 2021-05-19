@@ -42,7 +42,6 @@ class FileController extends Controller
          $request->validate([
             'file_path' => 'required|mimes:pdf|max:2000000'
         ]);
-
         $nom = $_FILES['file_path']['name'];
 
         $date = date('m/d/Y');
@@ -50,11 +49,12 @@ class FileController extends Controller
 
         /* donnner un id uniuqe à l'image avec le chemin et l'extension */
        /*  $newpdf = auth()->user()->nom.'_'.auth()->user()->prenom.'_'.$nom.'_'.uniqid().'.'. $request->file_path->extension(); */
-       $newpdf = auth()->user()->nom.'_'.auth()->user()->prenom.'_'.$date.'.'. $nom;
+
+       $newpdf = $nom;
 
         $request->file_path->move(public_path('pdf'), $newpdf);
-        /* déplacer l'image dans le dossier image */
 
+        /* déplacer l'image dans le dossier image */
         /* création d'une publication dans la base de donnée   */
         File::create([
             'file_path' => $newpdf,

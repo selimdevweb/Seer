@@ -11,9 +11,9 @@ class AdminDashboardController extends Controller
     public function index(){
         if (auth()->user()->role==1){
 
-            $billetteries = DB::table('billetteries')
+            $billetteries = DB::table('users')
+            ->join('billetteries', 'billetteries.admin_id', '=', 'users.id')
             ->orderBy('billetteries.updated_at', 'DESC')
-            ->join('users', 'users.id', '=', 'billetteries.admin_id')
             ->take(1)
             ->get();
 

@@ -91,6 +91,7 @@ class BilletterieController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'quantite' => 'required',
             'prix' => 'required',
