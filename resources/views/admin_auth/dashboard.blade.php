@@ -17,7 +17,7 @@
         <div class="d-flex flex-row justify-content-center">
             @foreach ($billetteries as $billetterie)
                 <div class="d-flex flex-column justify-content-center align-items-center bg-dark text-white p-2 m-1">
-                    <h6>Billeterie du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d F Y') }}
+                    <h6>Billeterie du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y H:i') }}
                     </h6>
                     <div class="d-flex justify-content-center align-items-center ">
                         <a href="{{ route('admin.billetterie.edit', $billetterie->id) }}" class="text-white">Editer</a>

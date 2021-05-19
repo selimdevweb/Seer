@@ -12,7 +12,10 @@
 
             <input type="number" name="quantite" placeholder="Quantité" value="{{ $billetterie->quantite }}">
             <input type="number" name="prix" placeholder="Prix" value="{{ $billetterie->prix }}">
-            <input type="datetime-local" name="date" value="{{ $billetterie->date }}">
+           <div class="d-flex flex-column align-items-center">
+            <label for="date">Date : {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y H:i') }}</label>
+            <input type="datetime-local" id="date" name="date" value="{{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y H:i') }}">
+           </div>
             <input type="time" name="heure_fin" value="{{ $billetterie->heure_fin }}">
             <input type="submit" value="Valider">
         </form>
