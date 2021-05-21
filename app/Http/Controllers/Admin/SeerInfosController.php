@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Seer_infos;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SeerInfosController extends Controller
 {
@@ -14,7 +15,7 @@ class SeerInfosController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin_auth.seer_infos');
     }
 
     /**
@@ -22,9 +23,19 @@ class SeerInfosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $request->validate([
+            'description' => 'required',
+            'adresse' => 'required',
+        ]);
+
+        Seer_infos::create([
+            'description' => $request->input('description'),
+            'adresse' => $request->input('adresse'),
+        ]);
+
+        return redirect('/admin-dashboard');
     }
 
     /**
@@ -35,7 +46,7 @@ class SeerInfosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -57,7 +68,11 @@ class SeerInfosController extends Controller
      */
     public function edit($id)
     {
-        //
+        /* $infos = DB::table('seer_infos')
+        ->where('id', $id)
+        ->first();
+
+        return view('admin_auth.seer_infos')->with('infos', $infos); */
     }
 
     /**
@@ -69,7 +84,18 @@ class SeerInfosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /* $request->validate([
+            'description' => 'required',
+            'adresse' => 'required',
+        ]);
+
+        Seer_infos::where('id', $request->id)
+        ->update([
+            'description' => $request->input('description'),
+            'adresse' => $request->input('adresse'),
+        ]);
+
+        return redirect('/admin-dashboard'); */
     }
 
     /**
@@ -80,6 +106,7 @@ class SeerInfosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /* $id ->delete();
+        return redirect('/admin-dashboard'); */
     }
 }

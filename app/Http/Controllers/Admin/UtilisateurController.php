@@ -96,9 +96,7 @@ class UtilisateurController extends Controller
         return redirect()->route('admin.utilisateur');
     }
 
-
-
-     /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

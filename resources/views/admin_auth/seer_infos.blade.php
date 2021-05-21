@@ -15,10 +15,11 @@
     @endif
 
         <div class="d-flex justify-content-center">
-            <form action="#" method="post" class="form-group" >
+            <form action="{{ route('create_infos') }}" method="post" class="form-group" >
+                @csrf
                 <h4>Infos Billeterie</h4>
-                <textarea name="description_billeterie" cols="30" rows="10"></textarea>
-                <input type="text" name="adresse_distri">
+                <textarea name="description" cols="30" rows="10"></textarea>
+                <input type="text" name="adresse">
                 <input type="submit" value="Créér">
             </form>
         </div>

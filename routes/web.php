@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\DashboardController;
 
 
+use App\Http\Controllers\Admin\SeerInfosController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\AdminLogoutController;
@@ -74,11 +75,9 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::post('/admin-billetterie/valid/{id}', [UtilisateurController::class, 'valid'])->name('admin.utilisateur.valid')->middleware('auth');
     Route::post('/admin-billetterie/invalid/{id}', [UtilisateurController::class, 'invalid'])->name('admin.utilisateur.invalid')->middleware('auth');
 
-
-
     //SEER INFOS
-/*     Route::get('/seer_infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');
-    Route::post('/seer_infos', [SeerInfosController::class, 'store_billeterie'])->name('seer.store_billeterie')->middleware('auth'); */
+    Route::get('/seer-infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');
+    Route::post('/seer-infos', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
 
     // USERS
     /* Route::get('/admin-users', [AdminUsersController::class, 'index'])->name('user.dashboard')->middleware('auth');
