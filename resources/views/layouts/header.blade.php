@@ -19,7 +19,7 @@
                     @endguest
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.dashboard') }}">User Dashboard</a>
+                            <a class="nav-link" href="{{ route('user.dashboard') }}">User {{ auth()->user()->nom }} Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.logout') }}">Déconnexion</a>

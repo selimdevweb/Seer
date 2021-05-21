@@ -21,13 +21,13 @@
                     </h6>
                     <div class="d-flex justify-content-center align-items-center ">
                         <a href="{{ route('admin.billetterie.edit', $billetterie->id) }}" class="text-white">Editer</a>
-                        <form class="boutton_edit" action="" method="post">
+                        <form class="boutton_edit" action="{{ route('admin.billetterie.destroy', $billetterie->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Supprimer</button>
                         </form>
-                    </div>{{--
-                    <h6>Auteur : {{ $billetterie->nom }} {{ $billetterie->prenom }}</h6> --}}
+                    </div>
+                    <h6>Auteur : {{ $billetterie->nom }} {{ $billetterie->prenom }}</h6>
                 </div>
             @endforeach
         </div>
@@ -36,7 +36,6 @@
             <form action="{{ route('admin.billetterie.store') }}" method="post" class="form-group" >
                 @csrf
                 <h3>Billeterie</h3>
-
                 <h4>Parametres de la billeterie</h4>
                 <input type="number" name="quantite" placeholder="Quantité">
                 <input type="number" name="prix" placeholder="Prix">

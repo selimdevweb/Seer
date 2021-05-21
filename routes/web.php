@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\AdminLogoutController;
 use App\Http\Controllers\Admin\BilletterieController;
+use App\Http\Controllers\Admin\UtilisateurController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 /*
@@ -62,8 +63,17 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::get('/admin-billetterie', [BilletterieController::class, 'index'])->name('admin.billetterie')->middleware('auth');
     Route::post('/admin-billetterie', [BilletterieController::class, 'store'])->name('admin.billetterie.store')->middleware('auth');
 
+
     Route::get('/admin-billetterie/{id}', [BilletterieController::class, 'edit'])->name('admin.billetterie.edit')->middleware('auth');
     Route::post('/admin-billetterie/{id}', [BilletterieController::class, 'update'])->name('admin.billetterie.update')->middleware('auth');
+    Route::delete('/admin-billetterie/{id}', [BilletterieController::class, 'destroy'])->name('admin.billetterie.destroy')->middleware('auth');
+
+
+    //Validation Utilisateur
+    Route::get('/admin-utilisateur', [UtilisateurController::class, 'index'])->name('admin.utilisateur')->middleware('auth');
+    Route::post('/admin-billetterie/valid/{id}', [UtilisateurController::class, 'valid'])->name('admin.utilisateur.valid')->middleware('auth');
+    Route::post('/admin-billetterie/invalid/{id}', [UtilisateurController::class, 'invalid'])->name('admin.utilisateur.invalid')->middleware('auth');
+
 
 
     //SEER INFOS
@@ -76,6 +86,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 
     // DECONNEXION
     Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.logout')->middleware('auth');
+
 
 
 

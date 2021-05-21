@@ -22,7 +22,17 @@ class DashboardController extends Controller
             ->orderBy('updated_at', 'DESC')
             ->get();
 
-            return view('user_auth.dashboard')->with('files', $files);
+            $billetteries = DB::table('billetteries')
+            ->orderBy('billetteries.updated_at', 'DESC')
+            ->take(1)
+            ->get();
+
+            return view('user_auth.dashboard')->with(
+                [
+                    'files' => $files,
+                    'billeteries' =>$billetteries
+                ]
+            );
         }
         else if (auth()->user()->role==1)
             return redirect('/admin-dashboard');

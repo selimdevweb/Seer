@@ -35,6 +35,13 @@
     </form>
 
     <div class="d-flex flex-column">
+
+        @if (auth()->user()->status==1)
+        @foreach ($billeteries as $billeterie)
+        <p>{{ $billeterie->titre }}</p>
+        @endforeach
+        @endif
+
         @foreach ($files as $file)
 
             <div class="d-flex flex-column justify-content-center align-items-center w-100">

@@ -89,3 +89,18 @@ input{
 .boutton_edit button:hover {
     text-decoration: underline;
 }
+.visible{
+    background-color: green !important;
+}
+.visible-rouge{
+    background-color: red !important;
+}
+.valid {
+    color: green;
+    font-size: 30px;
+}
+.invalid {
+    color: red;
+    font-size: 30px;
+}
+
