@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <h1>Mon compte</h1>
+    <div class=" d-flex justify-content-center w-100">
+        <h1>Mon compte</h1>
+    </div>
     @if (session()->has('message'))
         <div class="w-4/5 m-auto mt-10 pl-2">
             <p class="w2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl px-4 py-4">
@@ -51,8 +53,20 @@
     <div class="d-flex flex-column">
 
         @if (auth()->user()->status==1)
-        @foreach ($billeteries as $billeterie)
-        <p>{{ $billeterie->titre }}</p>
+        @foreach ($billeteries as $billetterie)
+        <div class="d-flex justify-content-center ">
+            <form action="{{ route('admin.billetterie.update', $billetterie->id) }}" method="post" class="form-group" >
+                @csrf
+                <div class=" d-flex justify-content-between align-items-center">
+                    <label for="prix">Quantité</label>
+                <input type="number" id="prix" name="quantite" placeholder="Quantité" value="0">
+                </div>
+                <input type="number" name="prix" placeholder="Prix" value="{{ $billetterie->prix }}">
+                <input type="datetime-local" id="date" name="date" value="{{ $billetterie->date }}">
+                <input type="time" name="heure_fin" value="{{ $billetterie->heure_fin }}">
+                <input type="submit" value="Valider">
+            </form>
+        </div>
         @endforeach
         @endif
 
