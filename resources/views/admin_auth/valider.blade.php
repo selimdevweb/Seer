@@ -26,7 +26,6 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-                <tr>
                     <th scope="row" class=""><i class="fas fa-check-square
                         @if ($user->status == 1)
                         valid
@@ -45,9 +44,10 @@
                         </form>
                     </td>
                     <td scope="row">
-                        <form class="boutton_edit" action="{{ route('admin.utilisateur.invalid', $user->user_id) }}" method="post">
+                        <form class="boutton_edit" action="{{ route('admin.utilisateur.invalid', $user->id) }}" method="post">
                             @csrf
-                            <input type="hidden" value="0" name="invalider">
+                            <input type="hidden" value="2" name="invalider">
+                            <input type="hidden" value="{{ $user->file_path }}" name="pdf">
                             <button type="submit" class="btn btn-danger visible-rouge">Refuser</button>
                         </form>
                     </td>

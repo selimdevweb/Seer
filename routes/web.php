@@ -46,6 +46,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     // DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard')->middleware('auth');
     Route::post('/dashboard', [FileController::class, 'store'])->name('file.store')->middleware('auth');
+    Route::post('/dashboard/{id}', [FileController::class, 'destroy'])->name('file.destroy')->middleware('auth');
 
     // DECONNEXION
     Route::get('/deconnexion', [LogoutController::class, 'destroy'])->name('user.logout')->middleware('auth');
@@ -73,7 +74,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     //Validation Utilisateur
     Route::get('/admin-utilisateur', [UtilisateurController::class, 'index'])->name('admin.utilisateur')->middleware('auth');
     Route::post('/admin-billetterie/valid/{id}', [UtilisateurController::class, 'valid'])->name('admin.utilisateur.valid')->middleware('auth');
-    Route::post('/admin-billetterie/invalid/{id}', [UtilisateurController::class, 'invalid'])->name('admin.utilisateur.invalid')->middleware('auth');
+    Route::post('/admin-billetterie/invalid/{user}', [UtilisateurController::class, 'invalid'])->name('admin.utilisateur.invalid')->middleware('auth');
 
     //SEER INFOS
     Route::get('/seer-infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');

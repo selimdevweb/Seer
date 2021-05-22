@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Models\File;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -37,10 +38,10 @@ class FileController extends Controller
     public function store(Request $request)
     {
 
-
          /* valider ce que l'on reçoit  */
          $request->validate([
-            'file_path' => 'required|mimes:pdf|max:2000000'
+            'file_path' => 'required|mimes:pdf|max:2000000',
+            'rgpd' => 'required'
         ]);
         $nom = $_FILES['file_path']['name'];
 
@@ -59,6 +60,11 @@ class FileController extends Controller
         File::create([
             'file_path' => $newpdf,
             'user_id' => auth()->user()->id,
+        ]);
+
+        User::where('id', auth()->user()->id)
+        ->update([
+            'status' => 0
         ]);
 
         /* afficage de confirmation */
@@ -106,8 +112,17 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+
+    /* public function destroy(File $id){
+        $this->authorize('delete', $item);
+        $id ->delete();
+
+        User::where('id', auth()->user()->id)
+        ->update([
+            'status' => 0,
+        ]);
+
+        return redirect('/dashboard')->with('message', 'supprimé ');
+
+    } */
 }

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class UtilisateurController extends Controller
 {
@@ -20,7 +21,7 @@ class UtilisateurController extends Controller
             ->join('files', 'files.user_id', '=', 'users.id')
             ->where('users.role', 0)
             ->get();
-
+/* optimiser */
         return view('admin_auth.valider')->with('users', $users);
     }
 
@@ -105,12 +106,15 @@ class UtilisateurController extends Controller
      */
     public function invalid(Request $request, $id)
     {
+
         User::where('id', $request->id)
         ->update([
             'status' => $request->invalider,
         ]);
-
-        return redirect()->route('admin.utilisateur');
+        $image = public_path('pdf/').$request->pdf;
+        DB::table('files')->where('id', $id)->delete();
+        File::delete($image);
+        return redirect()->route('admin.utilisateur')->with('message', 'Ce pdf est bien supprimé');
     }
 
     /**
@@ -119,8 +123,11 @@ class UtilisateurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   /*  public function destroy(File $id)
     {
-        //
-    }
+        $image = public_path('pdf/').$product->cover_img;
+        File::delete($image);
+        $product ->delete();
+        return redirect()->route('admin_dashboard')->with('message', 'Votre publication est bien supprimé ');
+    } */
 }

@@ -56,6 +56,7 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
+
             /* valider ce que l'on reçoit  */
             $request->validate([
                 'rgpd' => 'required',
