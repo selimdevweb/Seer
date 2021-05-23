@@ -4,13 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 
+use App\Http\Controllers\Auth\CheckoutController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Users\FileController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+
+
 use App\Http\Controllers\Auth\DashboardController;
-
-
 use App\Http\Controllers\Admin\SeerInfosController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminUsersController;
@@ -47,6 +48,9 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard')->middleware('auth');
     Route::post('/dashboard', [FileController::class, 'store'])->name('file.store')->middleware('auth');
     Route::post('/dashboard/{id}', [FileController::class, 'destroy'])->name('file.destroy')->middleware('auth');
+
+    // CHECKOUT
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('user.checkout')->middleware('auth');
 
     // DECONNEXION
     Route::get('/deconnexion', [LogoutController::class, 'destroy'])->name('user.logout')->middleware('auth');

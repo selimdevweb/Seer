@@ -5,9 +5,10 @@
 @endsection
 
 @section('content')
-    <div class=" d-flex justify-content-center w-100">
+    <article class=" d-flex justify-content-center w-100">
         <h1>Mon compte</h1>
-    </div>
+
+    </article>
     @if (session()->has('message'))
         <div class="w-4/5 m-auto mt-10 pl-2">
             <p class="w2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl px-4 py-4">
@@ -40,50 +41,35 @@
             </label>
         </div>
     </div>
+
     @error('rgpd')
-            {{ $message }}
-            @enderror
+        {{ $message }}
+    @enderror
+
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
-   @endif
-    @elseif (auth()->user()->status ==1)
-    Vos Documents sont approuvés
     @endif
 
-    <div class="d-flex flex-column">
+    @elseif (auth()->user()->status ==1)
 
-        @if (auth()->user()->status==1)
-        @foreach ($billeteries as $billetterie)
-        <div class="d-flex justify-content-center ">
-            <form action="{{ route('admin.billetterie.update', $billetterie->id) }}" method="post" class="form-group" >
-                @csrf
-                <div class=" d-flex justify-content-between align-items-center">
-                    <label for="prix">Quantité</label>
-                <input type="number" id="prix" name="quantite" placeholder="Quantité" value="0">
+        <article class="alert alert-primary text-center">
+            <span>Vos Documents sont approuvés !</span>
+            @foreach ($files as $file)
+                    <a class="m-2" href="{{ asset('pdf/'.$file->file_path) }} " target="blank">Voir pdf</a>
+            @endforeach
+        </article>
+
+        <article class="bg-light">
+    -       @foreach ($billeteries as $billetterie)
+                <div class="text-center">
+                    <h2>Distribution du {{ $billetterie->date }}</h2>
+                    <span>Prix : {{ $billetterie->prix }}€</span>
+                    <p>Quantité(s) : {{ $billetterie->quantite }}</p>
+                    <a href="{{ route('user.checkout') }}">Réserver</a>
                 </div>
-                <input type="number" name="prix" placeholder="Prix" value="{{ $billetterie->prix }}">
-                <input type="datetime-local" id="date" name="date" value="{{ $billetterie->date }}">
-                <input type="time" name="heure_fin" value="{{ $billetterie->heure_fin }}">
-                <input type="submit" value="Valider">
-            </form>
-        </div>
-        @endforeach
-        @endif
+            @endforeach
+        </article>
 
-        @foreach ($files as $file)
-
-            <div class="d-flex flex-column justify-content-center align-items-center w-100">
-                <h2>{{ $file->file_path }}</h2>
-                <a class="m-2" href="{{ asset('pdf/'.$file->file_path) }} " target="blank">Voir pdf</a>
-               {{--  <form action="{{ route('file.destroy',$file->id ) }}" method="post">
-                @csrf
-                <input type="submit" value="Supprimer">
-                </form> --}}
-            </div>
-        @endforeach
-    </div>
-
-
-
+    @endif
 
 @endsection
