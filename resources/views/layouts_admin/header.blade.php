@@ -12,9 +12,6 @@
                     </li>
                     @endguest
                     @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.logout') }}">Admin Déconnexion</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Actions Admin
@@ -26,6 +23,9 @@
                               <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.logout') }}">Déconnexion</a>
+                        </li>
 
                     @endauth
                 </ul>

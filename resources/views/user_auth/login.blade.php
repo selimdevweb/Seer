@@ -6,27 +6,33 @@
 
 @section('content')
 <h1 class="text-center">Connexion</h1>
-<div class="flex center_row">
+<div class="flex center_row ">
     <form action="{{ route('login.store') }}" method="POST">
         @csrf
 
-        @error('email')
-                <div class="error">
+        <div class="d-flex flex-column align-items-center">
+
+            <div class="mb-3 ">
+                <input type="email" name="email" class="form-control form-control-lg" placeholder="Votre adresse mail" value="{{ old('email') }}">
+            </div>
+
+            @error('email')
+                <div class="alert alert-danger" role="alert">
                     {{ $message }}
                 </div>
-        @enderror
-        <div class="mb-3">
-            <input type="email" class="form-control"  name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
+            @enderror
         </div>
 
-        @error('password')
-                <div class="error">
+        <div class="d-flex flex-column align-items-center">
+            <div class="mb-3">
+                <input type="password" name="password" placeholder="Votre mot de passe">
+            </div>
+
+            @error('password')
+                <div class="alert alert-danger" role="alert">
                     {{ $message }}
                 </div>
-        @enderror
-
-        <div class="mb-3">
-            <input type="password" class="form-control" name="password" placeholder="Votre mot de passe">
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Envoyer</button>

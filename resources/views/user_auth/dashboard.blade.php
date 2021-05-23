@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-    Dashboard
+    Mon profil
 @endsection
 
 @section('content')
     <article class=" d-flex justify-content-center w-100">
-        <h1>Mon compte</h1>
+        <h1>Mon profil</h1>
 
     </article>
     @if (session()->has('message'))
@@ -62,7 +62,7 @@
         <article class="bg-light">
     -       @foreach ($billeteries as $billetterie)
                 <div class="text-center">
-                    <h2>Distribution du {{ $billetterie->date }}</h2>
+                    <h2>Distribution du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}</h2>
                     <span>Prix : {{ $billetterie->prix }}€</span>
                     <p>Quantité(s) : {{ $billetterie->quantite }}</p>
                     <a href="{{ route('user.checkout') }}">Réserver</a>

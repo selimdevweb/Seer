@@ -1,6 +1,7 @@
 
 h1{
     margin-bottom: 30px;
+    text-align: center;
 }
 .flex{
     display: flex;
@@ -14,7 +15,26 @@ main{
 .direction_row{
     flex-direction: row;
 }
+.delete_buttons_form{
+    height: auto;
+    width: auto;
+}
+.delete_buttons{
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    color: #007bff;
+}
+.form_login{
+    width: 500px;
+}
 
+.admin_dashboard_card{
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 300px;
+    width: 300px;
+}
 .center_row{
 justify-content: center;
 }

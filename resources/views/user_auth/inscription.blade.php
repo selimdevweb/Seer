@@ -14,7 +14,7 @@
                 <input type="text" class="form-control" name="nom" placeholder="Votre Nom" value="{{ old('nom') }}">
 
                 @error('nom')
-                    <div class="error">
+                    <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
@@ -25,7 +25,7 @@
                 <input type="text" class="form-control" name="prenom" placeholder="Votre Prénom" value="{{ old('prenom') }}">
 
                 @error('prenom')
-                    <div class="error">
+                    <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
@@ -36,7 +36,7 @@
                 <input type="email" class="form-control"  name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
 
                 @error('email')
-                <div class="error">
+                <div class="alert alert-danger" role="alert">
                     {{ $message }}
                 </div>
                 @enderror
@@ -46,7 +46,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Votre mot de passe">
 
                 @error('password')
-                        <div class="error">
+                        <div class="alert alert-danger" role="alert">
                             {{ $message }}
                         </div>
                 @enderror
@@ -56,7 +56,7 @@
                 <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmez votre mot de passe">
 
                 @error('password_confirmation')
-                    <div class="error">
+                    <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
@@ -68,7 +68,7 @@
                     Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information de la CNIL.</label>
             </div>
             @error('rgpd')
-                    <div class="error">
+                    <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                 @enderror

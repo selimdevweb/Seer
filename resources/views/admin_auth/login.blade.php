@@ -10,24 +10,25 @@
     <form action="{{ route('admin_login.store') }}" method="POST">
         @csrf
 
-        @error('email')
-                <div class="error">
-                    {{ $message }}
-                </div>
-        @enderror
         <div class="mb-3">
             <input type="email" class="form-control"  name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
         </div>
 
-        @error('password')
-                <div class="error">
-                    {{ $message }}
-                </div>
+        @error('email')
+            <div class="alert alert-danger" role="alert">
+                {{ $message }}
+            </div>
         @enderror
 
         <div class="mb-3">
             <input type="password" class="form-control" name="password" placeholder="Votre mot de passe">
         </div>
+
+        @error('password')
+            <div class="alert alert-danger" role="alert">
+                {{ $message }}
+            </div>
+        @enderror
 
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
