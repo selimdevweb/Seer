@@ -13,7 +13,7 @@
         <div class="d-flex flex-column align-items-center">
 
             <div class="mb-3 ">
-                <input type="email" name="email" class="form-control form-control-lg" placeholder="Votre adresse mail" value="{{ old('email') }}">
+                <input type="email" name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
             </div>
 
             @error('email')
