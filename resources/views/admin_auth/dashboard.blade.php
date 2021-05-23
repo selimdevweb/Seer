@@ -21,14 +21,14 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Billeterie du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y H:i') }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Auteur : {{ $billetterie->nom }} {{ $billetterie->prenom }}</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h6 class="card-subtitle mb-2 text-muted">Dernière mise à jour : </h6>
+                    <p class="card-text">{{ $billetterie->nom }} {{ $billetterie->prenom }} le {{ \Carbon\Carbon::parse($billetterie->updated_at)->translatedFormat('d/m/Y') }}</p>
                     <div class="d-flex flex-row justify-content-left align-items-center">
-                        <a href="{{ route('admin.billetterie.edit', $billetterie->id) }}" class="card-link">Editer</a>
+                        <a href="{{ route('admin.billetterie.edit', $billetterie->id) }}" class="card-link admin_text_primary">Editer</a>
                         <form class="delete_buttons_form" action="{{ route('admin.billetterie.destroy', $billetterie->id) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="delete_buttons" type="submit">Supprimer</button>
+                            <button class="delete_buttons admin_text_primary" type="submit">Supprimer</button>
                         </form>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <input type="number" name="prix" placeholder="Prix">
                     <input type="datetime-local" name="date" id="debut">
                     <input type="time" name="heure_fin" id="">
-                    <input type="submit" value="Créér">
+                    <input type="submit" class="admin_buttons_primary" value="Créér">
                 </form>
             </div>
         </div>

@@ -9,6 +9,27 @@ h1{
 main{
     height: 100vh;
 }
+
+.admin_bg_primary{
+/*     background: #1f1f1f!important; */
+    background: #0866c6!important;
+}
+.admin_text_primary{
+    color: #0866c6!important;
+}
+.admin_text_primary:hover{
+    color: #064D94!important;
+}
+.admin_buttons_primary{
+    border: 2px solid #0866c6;
+    background-color: #0866c6;
+    color: white;
+}
+.admin_buttons_primary:hover{
+    border: 2px solid #064D94;
+    background-color: #064D94;
+    color: white;
+}
 .direction_colonne{
     flex-direction: column;
 }
