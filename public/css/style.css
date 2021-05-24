@@ -190,9 +190,9 @@ h1{
     color: rgb(73, 80, 87);
     border: 1px solid rgb(233, 236, 239);
 }
-.admin_tableau i{
+/* .admin_tableau i{
 
-}
+} */
 
 
 
@@ -233,10 +233,10 @@ justify-content: center;
 .content_between{
     justify-content: space-between;
 }
-form {
-    /* width: 300px;
-    height: 300px; */
-}
+/* form {
+    width: 300px;
+    height: 300px;
+} */
 input{
     width: 100%;
 }
