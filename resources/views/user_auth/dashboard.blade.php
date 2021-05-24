@@ -79,12 +79,12 @@
                         <a class="m-2" href="{{ asset('pdf/'.$file->file_path) }} " target="blank">Voir pdf</a>
                 @endforeach
             </article>
-    -       @foreach ($billeteries as $billetterie)
+            @foreach ($billeteries as $billetterie)
                 <div class="text-center">
                     <h2>Distribution du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}</h2>
                     <span>Prix : {{ $billetterie->prix }}€</span>
                     <p>Quantité(s) : {{ $billetterie->quantite }}</p>
-                    <a href="{{ route('user.checkout') }}">Réserver</a>
+                    <a href="{{ route('add.cart', $billetterie->id) }}">Ajouter au panier</a>
                 </div>
             @endforeach
         </article>

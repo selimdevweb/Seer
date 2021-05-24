@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+
+
 use App\Http\Controllers\HomeController;
-
-
-use App\Http\Controllers\Auth\CheckoutController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Users\FileController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\CheckoutController;
+
+
 use App\Http\Controllers\Auth\RegisterController;
-
-
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Admin\SeerInfosController;
 use App\Http\Controllers\Admin\AdminLoginController;
@@ -91,7 +92,11 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     // DECONNEXION
     Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.logout')->middleware('auth');
 
-
+    //Panier
+    Route::get('/ajout-panier/{billetterie}', [CartController::class, 'add'])->name('add.cart')->middleware('auth');
+    Route::get('/panier', [CartController::class, 'index'])->name('index.cart')->middleware('auth');
+    Route::get('/panier/supprimer/{id}', [CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
+    Route::get('/panier/update/{id}', [CartController::class, 'update'])->name('cart.update')->middleware('auth');
 
 
 
