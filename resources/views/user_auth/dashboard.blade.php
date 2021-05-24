@@ -15,6 +15,12 @@
         </article>
     @endif
 
+    @if (auth()->user()->status == 0 && $files->count() > 0 )
+        <article class="alert alert-danger text-center">
+            <span>Vos documents sont en cours de validations merci d'attendre la fin de cette étape</span>
+        </article>
+    @endif
+
     @if (auth()->user()->status == 0 | auth()->user()->status == 2)
 
     @if (auth()->user()->status == 2)

@@ -49,7 +49,7 @@
                                 </form>
                             </td>
                             <td scope="row">
-                                <form action="{{ route('admin.utilisateur.invalid', $user->id) }}" method="post">
+                                <form action="{{ route('admin.utilisateur.invalid', $user->user_id) }}" method="post">
                                     @csrf
 
                                     <input type="hidden" value="2" name="invalider">

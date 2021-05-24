@@ -106,13 +106,12 @@ class UtilisateurController extends Controller
      */
     public function invalid(Request $request, $id)
     {
-
-        User::where('id', $request->id)
+        User::where('id', $id)
         ->update([
             'status' => $request->invalider,
         ]);
         $image = public_path('pdf/').$request->pdf;
-        DB::table('files')->where('id', $id)->delete();
+        DB::table('files')->where('user_id', $id)->delete();
         File::delete($image);
         return redirect()->route('admin.utilisateur')->with('message', 'Ce pdf est bien supprimé');
     }

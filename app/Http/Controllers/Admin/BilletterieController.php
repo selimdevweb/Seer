@@ -118,9 +118,9 @@ class BilletterieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+
+    public function destroy(Billetterie $id){
         $id ->delete();
-        return redirect('/admin-dashboard');
+        return redirect('/admin-dashboard')->with('message', 'supprimé ');
     }
 }

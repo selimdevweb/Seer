@@ -106,23 +106,4 @@ class FileController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    /* public function destroy(File $id){
-        $this->authorize('delete', $item);
-        $id ->delete();
-
-        User::where('id', auth()->user()->id)
-        ->update([
-            'status' => 0,
-        ]);
-
-        return redirect('/dashboard')->with('message', 'supprimé ');
-
-    } */
 }
