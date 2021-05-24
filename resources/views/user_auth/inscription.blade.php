@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Inscription
+    Seer | Inscription
 @endsection
 
 @section('content')

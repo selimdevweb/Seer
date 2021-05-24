@@ -11,7 +11,7 @@
                     </li>
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('inscription') }}">Inscription</a>
+                        <a class="nav-link" href="{{ route('inscription') }}">Inscription</a>
                     </li>
                     @endguest
                     @guest

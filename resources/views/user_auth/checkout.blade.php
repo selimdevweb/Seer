@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Checkout
+    Seer | Checkout
 @endsection
 
 @section('content')

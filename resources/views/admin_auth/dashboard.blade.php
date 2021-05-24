@@ -1,11 +1,12 @@
 @extends('layouts_admin.app')
 
 @section('title')
-    Admin - Dashboard
+    Admin | Tableau de bord
 @endsection
 
 @section('content')
-    <h1>Admin</h1>
+    <h1>Tableau de bord</h1>
+
     @if (session()->has('message'))
         <div class="w-4/5 m-auto mt-10 pl-2">
             <p class="w2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl px-4 py-4">
@@ -14,12 +15,12 @@
         </div>
     @endif
 
-    <div class="d-flex col justify-content-center align-items-center admin_dashboard">
+    <div class="d-flex justify-content-center ">
 
         <div class="admin_dashboard_card">
             @foreach ($billetteries as $billetterie)
             <div class="card" style="width: 18rem;">
-                <div class="card-body">
+                <div class="card-body admin_card">
                     <h5 class="card-title">Billeterie du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y H:i') }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Dernière mise à jour : </h6>
                     <p class="card-text">{{ $billetterie->nom }} {{ $billetterie->prenom }} le {{ \Carbon\Carbon::parse($billetterie->updated_at)->translatedFormat('d/m/Y') }}</p>
@@ -36,9 +37,8 @@
             @endforeach
         </div>
 
-        <div class="admin_dashboard_card">
-            <div>
-                <form action="{{ route('admin.billetterie.store') }}" method="post" class="form-group" >
+        <div class="admin_card_form admin_card">
+                <form action="{{ route('admin.billetterie.store') }}" method="post">
                     @csrf
                     <input type="number" name="quantite" placeholder="Quantité">
                     <input type="number" name="prix" placeholder="Prix">
@@ -46,7 +46,6 @@
                     <input type="time" name="heure_fin" id="">
                     <input type="submit" class="admin_buttons_primary" value="Créér">
                 </form>
-            </div>
         </div>
 
     </div>

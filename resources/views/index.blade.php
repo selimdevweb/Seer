@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Accueil
+    Seer | Accueil
 @endsection
 
 @section('content')

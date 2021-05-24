@@ -9,14 +9,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        @include('layouts_admin.header')
 
-        <div class="logo">
-            <img src="{{ asset('images/logo.png') }}"  alt="Logo Seer">
-        </div>
-
-        <main class="px-2">
-            <section>
+        <main class="d-flex">
+            <section class="admin_nav">
+                @include('layouts_admin.header')
+            </section>
+            <section class="admin_content">
                 @yield('content')
             </section>
         </main>

@@ -3,33 +3,138 @@ h1{
     margin-bottom: 30px;
     text-align: center;
 }
-.flex{
-    display: flex;
-}
+
 main{
     height: 100vh;
 }
 
+/* ADMIN */
+
+/* general */
 .admin_bg_primary{
 /*     background: #1f1f1f!important; */
-    background: #0866c6!important;
+    background: #3f6ad8!important;
 }
 .admin_text_primary{
-    color: #0866c6!important;
+    color: #3f6ad8!important;
 }
 .admin_text_primary:hover{
-    color: #064D94!important;
+    color: #3051A6!important;
 }
 .admin_buttons_primary{
-    border: 2px solid #0866c6;
-    background-color: #0866c6;
+    border: 2px solid #3f6ad8;
+    background-color: #3f6ad8;
     color: white;
+    box-shadow: 0 16px 26px -10px rgb(63 106 216 / 56%), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(63 106 216 / 20%);
 }
 .admin_buttons_primary:hover{
-    border: 2px solid #064D94;
-    background-color: #064D94;
+    border: 2px solid #3051A6;
+    background-color: #3051A6;
     color: white;
 }
+
+/* nav */
+.admin_nav{
+    width:300px;
+    background-color: white;
+}
+.admin_nav nav{
+    height: 400px;
+}
+.admin_nav h2{
+    text-transform: uppercase;
+    text-align: center;
+    margin: 25px .75rem 25px .75rem;
+    color: #3f6ad8;
+    font-size: .8rem;
+    font-weight: bold;
+}
+.admin_nav a{
+    padding: 0 1.5rem 0;
+    height: 2rem;
+    color: #6c757d;
+    font-size: 14.08px;
+    line-height: 2rem;
+}
+.admin_nav a:hover{
+    text-decoration: none;
+    background: #e0f3ff;
+    color: #3f6ad8;
+}
+
+/* content */
+.admin_content{
+    width:100%;
+    background-color: #f1f4f6;
+}
+.admin_content h1{
+    margin: 50px;
+}
+
+.admin_card{
+    background-color: white;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+}
+.admin_card h6{
+    color: #3f6ad8 !important;
+}
+
+.admin_card_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 350px;
+}
+.admin_card_form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.admin_card_form input:not(input[type="submit"]), textarea{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(26,54,126,0.125);
+}
+.admin_card_form textarea{
+    margin-bottom: 25px;
+    height: 150px;
+}
+.admin_card_form input[type="submit"]{
+    margin-top: 25px;
+}
+
+.admin_tableau{
+    margin-left: 20px;
+    min-height: 50px;
+    width: auto;
+    text-align: center;
+    border-collapse: separate !important;
+    border-spacing: 0;
+}
+
+.admin_tableau thead th{
+    padding: 10px 30px 10px 10px;
+    min-width: 43.2px;
+    color: rgb(73, 80, 87);
+    border: 1px solid rgb(233, 236, 239);
+}
+
+.admin_tableau td{
+    padding: 10px 30px 10px 10px;
+    color: rgb(73, 80, 87);
+    border: 1px solid rgb(233, 236, 239);
+}
+.admin_tableau i{
+
+}
+
+
+
+
+/* CSS OLD */
 .direction_colonne{
     flex-direction: column;
 }
@@ -53,8 +158,8 @@ main{
 .admin_dashboard_card{
     margin-right: 20px;
     margin-left: 20px;
-    height: 300px;
-    width: 300px;
+    height: 500px;
+    width: 500px;
 }
 .center_row{
 justify-content: center;
@@ -66,8 +171,8 @@ justify-content: center;
     justify-content: space-between;
 }
 form {
-    width: 300px;
-    height: 300px;
+    /* width: 300px;
+    height: 300px; */
 }
 input{
     width: 100%;
@@ -102,6 +207,8 @@ display: none;
 
 footer{
     width: 100% !important;
+    background-color: black;
+    color: white;
 }
 
 /* Form */
@@ -132,17 +239,24 @@ input{
     text-decoration: underline;
 }
 .visible{
-    background-color: green !important;
+    background-color: #3ac47d !important;
 }
 .visible-rouge{
-    background-color: red !important;
+    background-color: #d92550 !important;
 }
 .valid {
-    color: green;
-    font-size: 30px;
+    padding: 10px;
+    background-color: #3ac47d;
+    color: white;
+    border-radius: 50px;
 }
 .invalid {
-    color: red;
-    font-size: 30px;
+    padding: 10px;
+    background-color: #d92550;
+    color: white;
+    border-radius: 50px;
+
+
+    /* font-size: 30px; */
 }
 

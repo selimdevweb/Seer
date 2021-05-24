@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Connexion
+    Seer | Connexion
 @endsection
 
 @section('content')
