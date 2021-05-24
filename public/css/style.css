@@ -84,9 +84,12 @@ h1{
 }
 
 /* nav */
-.admin_nav{
-    width:300px;
-    background-color: white;
+.bg-light{
+    background-color: white !important;
+}
+.navbar a{
+    color: rgb(67, 94, 190) !important;
+    font-weight: 600;
 }
 .admin_nav nav{
     height: 400px;
