@@ -27,32 +27,34 @@
             <tbody>
                 @foreach ($users as $user)
                         <tr>
-                            <td class=""><i class="fas fa-check
-                                @if ($user->status == 1)
-                                valid
-                                @else
-                                invalid
-                                @endif"></i>
+                            <td>
+                                <i class="fas fa-check
+                                    @if ($user->status == 1)
+                                    valid
+                                    @else
+                                    invalid
+                                    @endif">
+                                </i>
                             </td>
                             <td>{{ $user->nom }}</td>
                             <td>{{ $user->prenom }}</td>
                             <td>{{ $user->email }}</td>
                             <td><a href="{{ asset('pdf/'.$user->file_path) }}" target="_blank">{{ $user->file_path }}</a></td>
                             <td>
-                                <form class="boutton_edit" action="{{ route('admin.utilisateur.valid', $user->user_id) }}" method="post">
+                                <form action="{{ route('admin.utilisateur.valid', $user->user_id) }}" method="post">
                                     @csrf
 
                                     <input type="hidden" value="1" name="valider">
-                                    <button type="submit" class="btn btn-success visible">Valider</button>
+                                    <button type="submit" class="btn admin_tableau_valid">Valider</button>
                                 </form>
                             </td>
                             <td scope="row">
-                                <form class="boutton_edit" action="{{ route('admin.utilisateur.invalid', $user->id) }}" method="post">
+                                <form action="{{ route('admin.utilisateur.invalid', $user->id) }}" method="post">
                                     @csrf
 
                                     <input type="hidden" value="2" name="invalider">
                                     <input type="hidden" value="{{ $user->file_path }}" name="pdf">
-                                    <button type="submit" class="btn">Refuser</button>
+                                    <button type="submit" class="btn admin_tableau_invalid">Refuser</button>
                                 </form>
                             </td>
                         </tr>
