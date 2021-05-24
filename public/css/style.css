@@ -1,22 +1,72 @@
-
-h1{
-    margin-bottom: 30px;
-    text-align: center;
-}
-
 main{
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* ADMIN */
-
-/* general */
-.admin_bg_primary{
-/*     background: #1f1f1f!important; */
-    background: #3f6ad8!important;
+h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: rgb(67, 94, 190);
 }
-.admin_text_primary{
-    color: #3f6ad8!important;
+/* general */
+.bg_primary{
+/*     background: #1f1f1f!important; */
+    background: #ebf3ff!important;
+}
+.text_primary{
+    color: rgb(67, 94, 190)!important;
+}
+.user_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    width: 400px;
+    background-color: white;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+    border-radius: 15px;
+}
+.user_form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user_form input[type="file"]+label{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: rgb(67, 94, 190);
+    border-bottom: 2px solid rgba(26,54,126,0.125);
+}
+.user_form input:not(input[type="submit"]), textarea{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(26,54,126,0.125);
+}
+.user_form button[type="submit"]{
+    margin-top: 15px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 50px;
+}
+.user_form input[type="checkbox"]{
+    width: 30px;
+    height: 30px;
+    margin-left: 55px;
+}
+.user_form label{
+
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+.user_form button{
+    border: none;
+    margin-bottom: 25px;
+    background-color: rgb(67, 94, 190);
+}
+.user_form button:hover{
+    background-color: #4088D6;
 }
 .admin_text_primary:hover{
     color: #3051A6!important;
@@ -71,9 +121,19 @@ main{
     margin: 50px;
 }
 
-.admin_card{
+.user_card{
     background-color: white;
     box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+}
+.user_dashboard{
+    height: 450px;
+    width: 450px;
+    border-radius: 15px;
+}
+.user_dashboard .alert-primary{
+    border: 1px solid #f0f1f5;
+    background-color: #f0f1f5;
+    color: #25396f;
 }
 .admin_card h6{
     color: #3f6ad8 !important;

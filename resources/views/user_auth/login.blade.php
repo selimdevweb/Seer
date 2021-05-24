@@ -5,8 +5,10 @@
 @endsection
 
 @section('content')
-<h1 class="text-center">Connexion</h1>
-<div class="flex center_row ">
+
+<div class="d-flex justify-content-center">
+<div class="user_form">
+    <h1 class="text-center">Connexion</h1>
     <form action="{{ route('login.store') }}" method="POST">
         @csrf
 
@@ -37,5 +39,6 @@
 
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
+</div>
 </div>
 @endsection

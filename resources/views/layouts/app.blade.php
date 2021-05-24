@@ -10,11 +10,8 @@
     <body>
         @include('layouts.header')
 
-        <div class="logo">
-            <img src="{{ asset('images/logo.png') }}"  alt="Logo Seer">
-        </div>
 
-        <main class="px-2">
+        <main class="px-2 bg_primary">
             <section>
                 @yield('content')
             </section>
