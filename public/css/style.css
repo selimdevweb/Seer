@@ -138,8 +138,11 @@ h1{
 }
 .user_dashboard{
     height: 450px;
-    width: 300px;
+    width: 1000px;
     border-radius: 15px;
+}
+.alert{
+    margin-bottom: 0;
 }
 .user_dashboard .alert-primary{
     border: 1px solid #f0f1f5;
@@ -185,7 +188,42 @@ h1{
     border-collapse: separate !important;
     border-spacing: 0;
 }
-
+nav a:hover{
+    color: #31458C !important;
+}
+.billetterie img{
+    width: 400px;
+    height: 400px;
+    margin: 0;
+}
+.txt{
+    padding: 10px;
+    background: #ffc107;
+}
+.product{
+    font-size: 15px;
+    line-height: 20px;
+    height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+/* padding: 21px 30px 11px; */
+color: #282828;
+background-color: #f7f7f8;
+margin-bottom: 20px;
+}
+.product_desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin-left: 50px;
+    width: 350px;
+    text-align: justify;
+}
+.product_desc input[type="submit"]{
+    width: 220px;
+}
 .user_shop input{
     outline: none;
     border: none;
