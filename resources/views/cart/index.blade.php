@@ -5,53 +5,36 @@
 @endsection
 
 @section('content')
-    <section class="text-center">
-        <h1>Votre panier</h1>
-        <article class="bg-light">
-
-            <table class="table">
+    <section>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div>
+                <h1>Votre panier</h1>
+            </div>
+            <table class="admin_tableau user_card">
                 <thead>
                     <tr>
-                        <th>Nom</th>
+                        <th>Produit(s)</th>
+                        <th>Quantité(s)</th>
                         <th>Prix</th>
-                        <th>Quantité</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($billetteries as $billetterie)
-                    <tr >
+                    <tr>
                         <td scope="row">{{ $billetterie->name }}</td>
-                        <td scope="row">{{ \Cart::get($billetterie->id)->getPriceSum()}}</td>
                         <td scope="row">
-                            <form action="{{ route('cart.update', $billetterie->id) }}">
+                            <form action="{{ route('cart.update', $billetterie->id) }}" class="user_shop">
                                 @csrf
                                 <input type="number" name="quantity" value="{{ $billetterie->quantity }}">
-                                <input type="submit" value="valider">
+                                <input type="submit" value="Modifier">
                             </form>
                         </td>
-
-                        <td>
-                            <a href="{{ route('cart.destroy', $billetterie->id) }}">Supprimer</a>
-                        </td>
-
-                    </tr>
-
-                    @endforeach
-                    <tr>
-                        <td scope="row"><span>Quantité Totale</span></td>
-                        <td>{{ \Cart::session(auth()->user()->id)->getTotalQuantity() }}</td>
-                    </tr>
-                    <tr>
-                        <td scope="row"><span>Prix Total</span></td>
-                        <td scope="row">{{ \Cart::session(auth()->user()->id)->getSubTotal() }} € </td>
-
-                    </tr>
-                    <tr>
+                        <td scope="row">{{ \Cart::get($billetterie->id)->getPriceSum()}} €</td>
                         <td scope="row"><a class="btn btn-warning font-weight-bold" href="{{ route('user.checkout') }}">Commander</a> </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
-        </article>
+        </div>
     </section>
 @endsection

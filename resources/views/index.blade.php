@@ -5,14 +5,14 @@
 @endsection
 
 @section('content')
-<div class="d-flex justify-content-center">
-    <h1>Accueil SEER</h1>
-    @if (session()->has('message'))
-    <div class="w-4/5 m-auto mt-10 pl-2">
-        <p class="w2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl px-4 py-4">
-            {{ session()->get('message') }}
-        </p>
+    <div class="d-flex justify-content-center">
+        <h1 class="text-secondary">Accueil SEER</h1>
+        @if (session()->has('message'))
+            <div class="w-4/5 m-auto mt-10 pl-2">
+                <p class="w2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl px-4 py-4">
+                    {{ session()->get('message') }}
+                </p>
+            </div>
+        @endif
     </div>
-</div>
-@endif
 @endsection
