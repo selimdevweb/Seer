@@ -81,7 +81,7 @@
             </article>
             @foreach ($billeteries as $billetterie)
                 <div class="text-center">
-                    <h2>Distribution du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}</h2>
+                    <h6>Distribution du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}</h6>
                     <span>Prix : {{ $billetterie->prix }}€</span>
                     <p>Quantité(s) : {{ $billetterie->quantite }}</p>
                     <a href="{{ route('add.cart', $billetterie->id) }}">Ajouter au panier</a>

@@ -45,6 +45,10 @@
                     <tr>
                         <td scope="row"><span>Prix Total</span></td>
                         <td scope="row">{{ \Cart::session(auth()->user()->id)->getSubTotal() }} € </td>
+
+                    </tr>
+                    <tr>
+                        <td scope="row"><a class="btn btn-warning font-weight-bold" href="{{ route('user.checkout') }}">Commander</a> </td>
                     </tr>
                 </tbody>
             </table>
