@@ -130,7 +130,7 @@ h1{
 }
 .user_dashboard{
     height: 450px;
-    width: 450px;
+    width: 300px;
     border-radius: 15px;
 }
 .user_dashboard .alert-primary{

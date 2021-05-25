@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<div class="d-flex justify-content-center">
 <h1>Accueil SEER</h1>
     @if (session()->has('message'))
     <div class="w-4/5 m-auto mt-10 pl-2">
@@ -12,5 +13,6 @@
             {{ session()->get('message') }}
         </p>
     </div>
+</div>
 @endif
 @endsection
