@@ -24,16 +24,19 @@
                             <a class="nav-link" href="{{ route('user.dashboard') }}">Mon profil</a>
                         </li>
                     @endauth
-                    @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('index.cart') }}"><i class="fas fa-shopping-cart"></i> {{ \Cart::session(auth()->user()->id)->getTotalQuantity() }}</a>
-                        </li>
-                    @endauth
+
                     @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.logout') }}">Déconnexion</a>
                         </li>
                     @endauth
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    @auth
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('index.cart') }}"><i class="fas fa-shopping-cart"></i> {{ \Cart::session(auth()->user()->id)->getTotalQuantity() }}</a>
+                    </li>
+                @endauth
                 </ul>
             </div>
         </div>
