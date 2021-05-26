@@ -109,7 +109,7 @@
 
                     <hr class="my-4">
 
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Commandez</button>
+                    <button class="w-100 btn btn-primary btn-lg" id="checkout-button" type="submit">Payer</button>
                   </form>
                 </div>
               </div>
@@ -120,4 +120,20 @@
 
                 <script src="form-validation.js"></script>
     </section>
+    <script src="https://js.stripe.com/v3/"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+        // Create an instance of the Stripe object with your publishable API key
+        var stripe = Stripe('pk_test_51Iuxs5G7x6GsCgKuLOi6zIKivOd6FIgBfhpSycZLrXafn1WbmojkAA77ibefwFbhxyTvMqGfNpAAVNejzDlIzpPb00nT6IGceH');
+        var elements = stripe.elements();
+      </script>
+
+
+
 @endsection
+

@@ -5,12 +5,13 @@ use App\Http\Controllers\CartController;
 
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Users\FileController;
 use App\Http\Controllers\Auth\LogoutController;
+
+
 use App\Http\Controllers\Auth\CheckoutController;
-
-
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Admin\SeerInfosController;
@@ -51,7 +52,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::post('/dashboard/{id}', [FileController::class, 'destroy'])->name('file.destroy')->middleware('auth');
 
     // CHECKOUT
-    Route::get('/checkout', [CheckoutController::class, 'index'])->name('user.checkout')->middleware('auth');
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('user.checkout')/* ->middleware('auth') */;
 
     // DECONNEXION
     Route::get('/deconnexion', [LogoutController::class, 'destroy'])->name('user.logout')->middleware('auth');
@@ -97,56 +98,3 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::get('/panier', [CartController::class, 'index'])->name('index.cart')->middleware('auth');
     Route::get('/panier/supprimer/{id}', [CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
     Route::get('/panier/update/{id}', [CartController::class, 'update'])->name('cart.update')->middleware('auth');
-
-
-
-
-
-    /* migration
-
-    $table->id();
-            $table->string('titre');
-            $table->integer('quantite');
-            $table->integer('prix');
-            $table->dateTime('date');
-            $table->time('heure_fin');
-            $table->foreignId('admin_id')->references('id')->on('users');
-            $table->timestamps();
-            */
-
-
-            /* model
-             'titre',
-        'quantite',
-        'prix',
-        'date',
-        'heure_fin',
-        'user_id'
-
-            */
-
-
-
-            /*
-            controller
-             public function store(Request $request)
-    {
-        $request->validate([
-            'quantite' => 'required',
-            'prix' => 'required',
-            'date' => 'required',
-            'heure_fin' => 'required'
-        ]);
-
-        Billeterie::create([
-            'titre' => $titre = 'Billeterie du ' . $request->input('date'),
-            'quantite' => $request->input('quantite'),
-            'prix' => $request->input('prix'),
-            'date' => $request->input('date'),
-            'heure_fin' => $request->input('heure_fin'),
-            'user_id' => auth()->user()->id
-        ]);
-
-        return redirect('/admin-dashboard');
-    }
-            */

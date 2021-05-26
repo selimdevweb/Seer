@@ -18,7 +18,7 @@ class CartController extends Controller
             'attributes' => array(),
             'associatedModel' => $billetterie,
         ));
-        return back();/* redirect()->route('index.cart'); */
+        return /* back(); */redirect()->route('index.cart');
     }
 
     public function index(){

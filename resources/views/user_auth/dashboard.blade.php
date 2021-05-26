@@ -92,12 +92,15 @@
                         {{-- <p>Quantité(s) : {{ $billetterie->quantite }}</p> --}}
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacinia bibendum massa, in dignissim dui blandit nec. Morbi lobortis elit mollis efficitur consequat. Etiam varius sem eu tempor feugiat. Vestibulum convallis tortor sed ex blandit, eget cursus nibh tempor. Duis laoreet tincidunt sem, in consectetur ligula facilisis ut.</p>
                         <div class="product"><span>Disponibilité: En stock</span></div>
-                        <form action="{{ route('cart.update', $billetterie->id) }}" class="user_shop">
+                        {{-- <form action="{{ route('cart.update', $billetterie->id) }}" class="user_shop">
                             @csrf
                             <input type="number" name="quantity" value="1">
                             <input type="submit" value="Ajouter au panier">
-                        </form>
-                        {{-- <a href="{{ route('add.cart', $billetterie->id) }}">Ajouter au panier</a> --}}
+                        </form> --}}
+                        <div class="user_shop">
+                            <input type="number" name="quantity" value="1">
+                        <a href="{{ route('add.cart', $billetterie->id) }}">Ajouter au panier</a>
+                        </div>
                     </div>
                 </div>
             @endforeach
