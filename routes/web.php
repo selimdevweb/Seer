@@ -51,8 +51,6 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::post('/dashboard', [FileController::class, 'store'])->name('file.store')->middleware('auth');
     Route::post('/dashboard/{id}', [FileController::class, 'destroy'])->name('file.destroy')->middleware('auth');
 
-    // CHECKOUT
-    Route::get('/checkout', [CheckoutController::class, 'index'])->name('user.checkout')/* ->middleware('auth') */;
 
     // DECONNEXION
     Route::get('/deconnexion', [LogoutController::class, 'destroy'])->name('user.logout')->middleware('auth');
@@ -98,3 +96,8 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::get('/panier', [CartController::class, 'index'])->name('index.cart')->middleware('auth');
     Route::get('/panier/supprimer/{id}', [CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
     Route::get('/panier/update/{id}', [CartController::class, 'update'])->name('cart.update')->middleware('auth');
+
+
+    // CHECKOUT
+    Route::get('/checkout/{id}', [CheckoutController::class, 'index'])->name('user.checkout')/* ->middleware('auth') */;
+    Route::post('/checkout/{id}', [CheckoutController::class, 'makePayment'])->name('make-payment');

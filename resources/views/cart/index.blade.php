@@ -30,7 +30,7 @@
                             </form>
                         </td>
                         <td scope="row">{{ \Cart::get($billetterie->id)->getPriceSum()}} €</td>
-                        <td scope="row"><a class="btn btn-warning font-weight-bold" href="{{ route('user.checkout') }}">Commander</a> </td>
+                        <td scope="row"><a class="btn btn-warning font-weight-bold" href="{{ route('user.checkout', $billetterie->id) }}">Commander</a> </td>
                     </tr>
                     @endforeach
                 </tbody>

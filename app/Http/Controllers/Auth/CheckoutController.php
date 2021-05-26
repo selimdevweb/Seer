@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Stripe\Charge;
 use Stripe\Stripe;
-use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Stripe\Checkout\Session;
 use Illuminate\Support\Facades\DB;
@@ -18,37 +18,22 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        $billetteries = \Cart::session(auth()->user()->id)->getContent();
+        return view('user_auth.checkout')->with('billetteries',$billetteries);
+    }
+
+
+    public function makePayment(Request $request)
+    {
         Stripe::setApiKey(env('STRIPE_SECRET'));
-
-
-
-        $session = Session::create([
-            'payment_method_types' => ['card'],
-            'line_items' => [[
-              'price_data' => [
-                'currency' => 'eur',
-                'product_data' => [
-                  'name' => 'colis',
-                ],
-                'unit_amount' => 1000,
-              ],
-              'quantity' => 1,
-            ]],
-            'mode' => 'payment',
-            'success_url' => 'https://example.com/success',
-            'cancel_url' => 'https://example.com/cancel',
-          ]);
-          $payment_intent = Arr::get($session, 'payment_intent');
-
-        /* if (auth()->user()->role==0){ */
-
-            $billetteries = DB::table('billetteries')
-            ->orderBy('billetteries.updated_at', 'DESC')
-            ->take(1)
-            ->get();
-
-            return view('user_auth.checkout',compact('billetteries', 'payment_intent'));
-    /* } */}
+        Charge::create ([
+                "amount" => $request->prix * 100,
+                "currency" => "eur",
+                "source" => $request->stripeToken,
+                "description" => "Make payment and chill."
+        ]);
+        return redirect('/')->with('message', 'Votre paiement est bien enregistré');
+    }
 
     /**
      * Show the form for creating a new resource.

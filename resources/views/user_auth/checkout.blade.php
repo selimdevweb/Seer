@@ -5,133 +5,126 @@
 @endsection
 
 @section('content')
-    <section class="text-center">
-        <div class="container">
-              <div class="row g-5">
-                <div class="col-md-5 col-lg-4 order-md-last">
-                  <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Votre panier</span>
-                    <span class="badge bg-primary rounded-pill">3</span>
-                  </h4>
-                  <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                      <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
-                      </div>
-                      <span class="text-muted">$12</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                      <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                      </div>
-                      <span class="text-muted">$8</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                      <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                      </div>
-                      <span class="text-muted">$5</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                      <span>Total (EUR)</span>
-                      <strong>$20</strong>
-                    </li>
-                  </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @foreach ($billetteries as $billetterie)
+                    <form role="form" action="{{ route('make-payment', $billetterie->id) }}" method="post" class="stripe-payment"
+                        data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+                        id="stripe-payment">
+                        @csrf
+
+                        <div class='form-row row'>
+                            <div class='col-xs-12 form-group required'>
+                                <label class='control-label'>Name on Card</label> <input class='form-control'
+                                    size='4' type='text' value="{{ auth()->user()->nom }}">
+                            </div>
+                        </div>
+
+                        <div class='form-row row'>
+                            <div class='col-xs-12 form-group required'>
+                                <p>{{ \Cart::get($billetterie->id)->getPriceSum()  }} €</p>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="prix" value="{{ \Cart::get($billetterie->id)->getPriceSum() }}">
+
+
+
+                        <div class='form-row row'>
+                            <div class='col-xs-12 form-group card required'>
+                                <label class='control-label'>Card Number</label> <input autocomplete='off'
+                                    class='form-control card-num' size='20' type='text'>
+                            </div>
+                        </div>
+
+                        <div class='form-row row'>
+                            <div class='col-xs-12 col-md-4 form-group cvc required'>
+                                <label class='control-label'>CVC</label>
+                                <input autocomplete='off' class='form-control card-cvc' placeholder='e.g 595'
+                                    size='4' type='text'>
+                            </div>
+                            <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                <label class='control-label'>Expiration Month</label> <input
+                                    class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+                            </div>
+                            <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                <label class='control-label'>Expiration Year</label> <input
+                                    class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <button class="btn btn-success btn-lg btn-block" type="submit">Pay</button>
+                        </div>
+
+                    </form>
+                    @endforeach
                 </div>
-                <div class="col-md-7 col-lg-8">
-                  <h4 class="mb-3">Billing address</h4>
-                  <form class="needs-validation" novalidate>
-                    <div class="row g-3">
-                      <div class="col-sm-6">
-                        <label for="firstName" class="form-label">Prénom</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Entrez votre prénom" value="" required>
-                        <div class="invalid-feedback">
-                          Valid first name is required.
-                        </div>
-                      </div>
-
-                      <div class="col-sm-6">
-                        <label for="lastName" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Entrez votre nom" value="" required>
-                        <div class="invalid-feedback">
-                          Valid last name is required.
-                        </div>
-                      </div>
-
-                      <div class="col-12">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Entrez votre adresse email">
-                        <div class="invalid-feedback">
-                          Please enter a valid email address for shipping updates.
-                        </div>
-                      </div>
-
-                    <hr class="my-4">
-
-                    <h4 class="mb-3">Paiement</h4>
-
-                    <div class="row gy-3">
-                      <div class="col-md-6">
-                        <label for="cc-name" class="form-label">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                        <div class="invalid-feedback">
-                          Name on card is required
-                        </div>
-                      </div>
-
-                      <div class="col-md-6">
-                        <label for="cc-number" class="form-label">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                        <div class="invalid-feedback">
-                          Credit card number is required
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <label for="cc-expiration" class="form-label">Expiration</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                        <div class="invalid-feedback">
-                          Expiration date required
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <label for="cc-cvv" class="form-label">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                        <div class="invalid-feedback">
-                          Security code required
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <button class="w-100 btn btn-primary btn-lg" id="checkout-button" type="submit">Payer</button>
-                  </form>
-                </div>
-              </div>
-          </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-              <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
-                <script src="form-validation.js"></script>
-    </section>
-    <script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+    $(function () {
+        var $form = $(".stripe-payment");
+        $('form.stripe-payment').bind('submit', function (e) {
+            var $form = $(".stripe-payment"),
+                inputVal = ['input[type=email]', 'input[type=password]',
+                    'input[type=text]', 'input[type=file]',
+                    'textarea'
+                ].join(', '),
+                $inputs = $form.find('.required').find(inputVal),
+                $errorStatus = $form.find('div.error'),
+                valid = true;
+            $errorStatus.addClass('hide');
 
+            $('.has-error').removeClass('has-error');
+            $inputs.each(function (i, el) {
+                var $input = $(el);
+                if ($input.val() === '') {
+                    $input.parent().addClass('has-error');
+                    $errorStatus.removeClass('hide');
+                    e.preventDefault();
+                }
+            });
 
+            if (!$form.data('cc-on-file')) {
+                e.preventDefault();
+                Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+                Stripe.createToken({
+                    number: $('.card-num').val(),
+                    cvc: $('.card-cvc').val(),
+                    exp_month: $('.card-expiry-month').val(),
+                    exp_year: $('.card-expiry-year').val()
+                }, stripeRes);
+            }
 
+        });
 
+        function stripeRes(status, response) {
+            if (response.error) {
+                $('.error')
+                    .removeClass('hide')
+                    .find('.alert')
+                    .text(response.error.message);
+            } else {
+                var token = response['id'];
+                $form.find('input[type=text]').empty();
+                $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+                $form.get(0).submit();
+            }
+        }
 
+    });
 
-    <script type="text/javascript">
-        // Create an instance of the Stripe object with your publishable API key
-        var stripe = Stripe('pk_test_51Iuxs5G7x6GsCgKuLOi6zIKivOd6FIgBfhpSycZLrXafn1WbmojkAA77ibefwFbhxyTvMqGfNpAAVNejzDlIzpPb00nT6IGceH');
-        var elements = stripe.elements();
-      </script>
+</script>
 
 
 
