@@ -99,5 +99,5 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 
 
     // CHECKOUT
-    Route::get('/checkout/{id}', [CheckoutController::class, 'index'])->name('user.checkout')/* ->middleware('auth') */;
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('user.checkout')/* ->middleware('auth') */;
     Route::post('/checkout/{id}', [CheckoutController::class, 'makePayment'])->name('make-payment');

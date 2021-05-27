@@ -39,6 +39,6 @@ class CartController extends Controller
             )
         ]
           );
-          return back();
+          return \redirect()->route('user.checkout');
     }
 }

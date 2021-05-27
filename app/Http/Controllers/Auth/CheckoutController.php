@@ -23,16 +23,24 @@ class CheckoutController extends Controller
     }
 
 
-    public function makePayment(Request $request)
+    public function makePayment(Request $request, $id)
     {
+        $billetteries = \Cart::session(auth()->user()->id)->getContent();
+
+        foreach($billetteries as $billetterie){
+            $prix = $billetterie->price * \Cart::session(auth()->user()->id)->getTotalQuantity();
+        }
         Stripe::setApiKey(env('STRIPE_SECRET'));
         Charge::create ([
-                "amount" => $request->prix * 100,
+                "amount" => $prix * 100,
                 "currency" => "eur",
                 "source" => $request->stripeToken,
                 "description" => "Make payment and chill."
         ]);
-        return redirect('/')->with('message', 'Votre paiement est bien enregistré');
+
+        \Cart::session(auth()->user()->id)->remove($id);
+
+        return redirect()->route('user.dashboard')->with('message', 'Votre paiement de '.$prix .'€ est bien enregistré');
     }
 
     /**
