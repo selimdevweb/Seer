@@ -18,6 +18,37 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+
+
+        $app->add(function ($request, $response, $next) {
+            \Stripe\Stripe::setApiKey('sk_test_51Iuxs5G7x6GsCgKuEb0imU0BEwom4saWBDQ4VXYgOadumdkdVzg34zNfBVT3ZwJHgRYPQ1DPOcLBxJv8oh50eIJT00qWnQVWAU');
+            return $next($request, $response);
+          });
+
+          $app->post('/create-checkout-session', function (Request $request, Response $response) {
+            $session = \Stripe\Checkout\Session::create([
+              'payment_method_types' => ['card'],
+              'line_items' => [[
+                'price_data' => [
+                  'currency' => 'usd',
+                  'product_data' => [
+                    'name' => 'T-shirt',
+                  ],
+                  'unit_amount' => 2000,
+                ],
+                'quantity' => 1,
+              ]],
+              'mode' => 'payment',
+              'success_url' => 'https://example.com/success',
+              'cancel_url' => 'https://example.com/cancel',
+            ]);
+
+            return $response->withJson([ 'id' => $session->id ])->withStatus(200);
+          });
+
+          $app->run();
+
+
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
         return view('user_auth.checkout')->with('billetteries',$billetteries);
     }
@@ -40,7 +71,7 @@ class CheckoutController extends Controller
 
         \Cart::session(auth()->user()->id)->remove($id);
 
-        return redirect()->route('user.dashboard')->with('message', 'Votre paiement de '.$prix .'€ est bien enregistré');
+        return redirect()->route('user.dashboard')->with('message', 'Votre paiement de '.$prix . '€ est bien enregistré');
     }
 
     /**
