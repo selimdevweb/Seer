@@ -6,11 +6,12 @@ use App\Http\Controllers\CartController;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Users\FileController;
+
+
 use App\Http\Controllers\Auth\LogoutController;
-
-
 use App\Http\Controllers\Auth\CheckoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\DashboardController;
@@ -60,6 +61,13 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     // CONNEXION
     Route::get('/admin-connexion', [AdminLoginController::class, 'index'])->name('admin_login')->middleware('guest');
     Route::post('/admin-connexion', [AdminLoginController::class, 'store'])->name('admin_login.store')->middleware('guest');
+
+
+    //Mot de passe oublié
+
+    Route::get('/mot_de_passe_reset', [PasswordController::class , 'forgot'])->name('password.index');
+    Route::post('/mot_de_passe_reset', [PasswordController::class , 'store'])->name('password.store');
+
 
     // DASHBOARD
     Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');

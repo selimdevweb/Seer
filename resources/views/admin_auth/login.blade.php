@@ -32,5 +32,6 @@
 
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
+    <a href="{{ route('forgot_password') }}">Mot de passe oublé ? </a>
 </div>
 @endsection

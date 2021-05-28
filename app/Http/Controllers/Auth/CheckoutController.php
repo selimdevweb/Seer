@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Auth;
 use Stripe\Charge;
 use Stripe\Stripe;
 use Illuminate\Http\Request;
-use Stripe\Checkout\Session;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class CheckoutController extends Controller
@@ -26,6 +24,7 @@ class CheckoutController extends Controller
 
     public function makePayment(Request $request, $id)
     {
+        ddd($request);
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
 
         foreach($billetteries as $billetterie){
