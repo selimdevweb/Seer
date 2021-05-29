@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\inscriptionMail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -23,15 +25,16 @@ class RegisterController extends Controller
             'rgpd'=>'required',
         ]);
 
-        User::create([
+/*         User::create([
             'nom'=>$request->nom,
             'prenom'=>$request->prenom,
             'rgpd'=>$request->rgpd,
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
-        ]);
+        ]); */
 
         auth()->attempt($request->only('email', 'password'));
+        Mail::to(Auth()->user())->send(new inscriptionMail);
 
         return redirect()->route('user.dashboard');
     }
