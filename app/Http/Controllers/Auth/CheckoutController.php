@@ -16,7 +16,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-
+        ddd(env('APP_NAME'));
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
         return view('user_auth.checkout')->with('billetteries',$billetteries);
     }
@@ -24,7 +24,7 @@ class CheckoutController extends Controller
 
     public function makePayment(Request $request, $id)
     {
-        ddd($request);
+
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
 
         foreach($billetteries as $billetterie){
