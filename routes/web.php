@@ -63,12 +63,6 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::post('/admin-connexion', [AdminLoginController::class, 'store'])->name('admin_login.store')->middleware('guest');
 
 
-    //Mot de passe oublié
-
-    Route::get('/mot_de_passe_reset', [PasswordController::class , 'forgot'])->name('password.index');
-    Route::post('/mot_de_passe_reset', [PasswordController::class , 'store'])->name('password.store');
-
-
     // DASHBOARD
     Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
     Route::post('/admin-dashboard', [AdminDashboardController::class, 'store'])->name('admin.dashboard')->middleware('auth');
