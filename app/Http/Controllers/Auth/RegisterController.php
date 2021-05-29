@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\inscriptionMail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -32,6 +34,7 @@ class RegisterController extends Controller
         ]);
 
         auth()->attempt($request->only('email', 'password'));
+        Mail::to(Auth()->user())->send(new inscriptionMail);
 
         return redirect()->route('user.dashboard');
     }
