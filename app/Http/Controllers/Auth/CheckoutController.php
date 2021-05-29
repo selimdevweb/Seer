@@ -16,7 +16,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        ddd(env('APP_NAME'));
+
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
         return view('user_auth.checkout')->with('billetteries',$billetteries);
     }
@@ -30,7 +30,7 @@ class CheckoutController extends Controller
         foreach($billetteries as $billetterie){
             $prix = $billetterie->price * \Cart::session(auth()->user()->id)->getTotalQuantity();
         }
-        Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe::setApiKey('sk_test_51Iuxs5G7x6GsCgKuEb0imU0BEwom4saWBDQ4VXYgOadumdkdVzg34zNfBVT3ZwJHgRYPQ1DPOcLBxJv8oh50eIJT00qWnQVWAU');
         Charge::create ([
                 "amount" => $prix * 100,
                 "currency" => "eur",

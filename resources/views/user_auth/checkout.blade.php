@@ -12,7 +12,7 @@
                 <div class="panel-body">
                     @foreach ($billetteries as $billetterie)
                     <form role="form" action="{{ route('make-payment', $billetterie->id) }}" method="post" class="stripe-payment"
-                        data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+                        data-cc-on-file="false" data-stripe-publishable-key="pk_test_51Iuxs5G7x6GsCgKuLOi6zIKivOd6FIgBfhpSycZLrXafn1WbmojkAA77ibefwFbhxyTvMqGfNpAAVNejzDlIzpPb00nT6IGceH"
                         id="stripe-payment">
                         @csrf
 
