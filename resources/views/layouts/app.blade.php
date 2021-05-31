@@ -13,8 +13,7 @@
     <body>
         @include('layouts.header')
 
-
-        <main class=" bg_primary">
+        <main>
             <section>
                 @yield('content')
             </section>

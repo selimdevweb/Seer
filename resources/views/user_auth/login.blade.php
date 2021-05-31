@@ -32,9 +32,13 @@
                         @enderror
                     </div>
 
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </div>
 
-                <a  class=" pb-2" href="{{ route('index.password') }}">Mot de passe oublié ?</a>
+                    <div class="mb-3">
+                        <a  class=" pb-2" href="{{ route('index.password') }}">Mot de passe oublié ?</a>
+                    </div>
             </form>
         </div>
     </div>

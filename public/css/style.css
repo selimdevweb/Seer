@@ -9,15 +9,29 @@
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
     min-height: 100vh;
     background: #ebf3ff;
 }
 
 h1 {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px 0 50px 0;
     color: rgb(67, 94, 190);
     font-size: 2.5em;
+}
+
+textarea {
+    width: 300px;
+}
+
+input {
+    width: 300px;
+    margin: 5px;
+    padding: 5px;
+}
+
+button {
+    outline: none !important;
 }
 
 /* 2 - Main */
@@ -27,23 +41,99 @@ h1 {
     flex-direction: column;
     align-items: center;
     margin: 20px 0 20px 0;
+    width: 500px;
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
 }
 
-/* 3 - Form */
-
-.main__form form{
+.main__cardBilletterie {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.main__cardBilletterie img {
+    object-fit: contain;
+    margin: 10px 0 10px 0;
+    height: 400px;
+    width: 400px;
+}
+
+.main__cardBilletterie p {
+    margin: 25px 50px 25px 50px;
+}
+
+.main__cardBilletterie input {
+    outline: none;
+    border: none;
+    width: 200px;
+    border-bottom: 2px solid rgba(26,54,126,0.125);
+}
+
+.main__cardBilletterie a {
+    margin: 25px 0 25px 0px;
+}
+
+/* 3 - Form */
+
+.main__form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__form form input:not(input[type="submit"]), textarea {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(26,54,126,0.125);
+}
+
+.main__form form input[type="file"] {
+    display: none;
+}
+
+.main__form form input[type="file"] + label {
+    margin: 0 0 30px 0;
+    color: rgb(67, 94, 190);
+    border-bottom: 2px solid rgba(26,54,126,0.125);
+}
+
 .main__formRgpd {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    height: 50px;
 }
+
+.main__formRgpd input[type="checkbox"]{
+    width: 25px;
+    height: 25px;
+    margin-left: 55px;
+}
+
+.main__formRgpd input[type="checkbox"]:hover{
+    cursor: pointer;
+}
+
+.main__formRgpd label {
+    margin: 0 0 20px 15px;
+}
+
+.main__form form button[type="submit"] {
+    margin: 15px 0 5px 0;
+    width: 200px;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: rgb(67, 94, 190);
+}
+
+.main__form form button[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #4088D6;
+}
+
+
 
 /*
 .bg_primary{
@@ -93,25 +183,8 @@ h1 {
     padding: 10px;
     border-radius: 50px;
 }
-.user_form input[type="checkbox"]{
-    width: 30px;
-    height: 30px;
-    margin-left: 55px;
-}
-.user_form label{
 
-    margin-left: 15px;
-    margin-bottom: 20px;
-}
 
-.user_form button{
-    border: none;
-    margin-bottom: 25px;
-    background-color: rgb(67, 94, 190);
-}
-.user_form button:hover{
-    background-color: #4088D6;
-}
 .admin_text_primary:hover{
     color: #3051A6!important;
 }
@@ -356,14 +429,7 @@ footer{
 } */
 
 /* Form */
-textarea{
-    width: 300px;
-}
-input{
-    width: 300px;
-    margin: 5px;
-    padding: 5px;
-}
+
 
 .boutton_edit{
     height: 30px;
@@ -399,33 +465,53 @@ input{
     background-color: #d92550;
     color: white;
     border-radius: 50px;
-
-
-    /* font-size: 30px; */
 }
 
 
-@media screen and (orientation: portrait){
-    h1{
-        margin-top: 25px;
-        margin-bottom: 25px;
+@media screen and (orientation: portrait) {
+
+    /* 1 - General */
+
+    h1 {
+        margin-top: 25px 0 25px 0;
         font-size: 2em;
     }
+
+    /* 2 - Main */
+
+    .main__content {
+        width: 300px;
+    }
+
+    .main__cardBilletterie h2 {
+        font-size: 1.2em;
+    }
+
+    .main__cardBilletterie h3 {
+        font-size: 1em;
+    }
+
+    .main__cardBilletterie img {
+        height: 300px;
+        width: 300px;
+    }
+
+    .main__cardBilletterie p {
+        font-size: 1em;
+    }
+
+    .main__cardBilletterie input {
+        width: 200px !important;
+    }
+
+    /* 3 - Form */
+
+    .main__content input{
+        width: 250px;
+    }
+
     .main__formRgpd {
         display: flex;
         flex-direction: column;
-    }
-    button{
-        outline: none !important;
-    }
-    .user_form{
-        width: 20em  !important;
-    }
-    .user_form input{
-        width: 200px !important;
-        font-size: 1em !important;
-    }
-    .user_form label{
-        font-size: 12px !important;
     }
 }
