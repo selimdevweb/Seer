@@ -30,8 +30,9 @@ input {
     padding: 5px;
 }
 
-button {
+input, button, textarea {
     outline: none !important;
+    border: none;
 }
 
 /* 2 - Main */
@@ -65,8 +66,6 @@ button {
 }
 
 .main__cardBilletterie input {
-    outline: none;
-    border: none;
     width: 200px;
     border-bottom: 2px solid rgba(26,54,126,0.125);
 }
@@ -84,8 +83,6 @@ button {
 }
 
 .main__form form input:not(input[type="submit"]), textarea {
-    outline: none;
-    border: none;
     border-bottom: 2px solid rgba(26,54,126,0.125);
 }
 
@@ -441,7 +438,6 @@ footer{
     align-items: center;
 }
 .boutton_edit button {
-    border: none;
     background-color: inherit;
     color: white;
 }
