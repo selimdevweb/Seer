@@ -33,6 +33,6 @@ class ForgotPasswordController extends Controller
           $message->subject('Reset Password Notification');
       });
 
-      return back()->with('message', 'We have e-mailed your password reset link!');
+    return redirect('/')->with('message', 'UN mail de réinitialisation vous a été envoyé merci de consulter votre boite mail');
   }
 }
