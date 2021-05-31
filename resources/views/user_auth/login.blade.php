@@ -12,8 +12,7 @@
             <form action="{{ route('login.store') }}" method="POST">
                 @csrf
 
-                <div class="d-flex flex-column align-items-center">
-
+                <div>
                     <div class="mb-3 ">
                         <input type="email" name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
                     </div>
@@ -25,7 +24,7 @@
                     @enderror
                 </div>
 
-                <div class="d-flex flex-column align-items-center">
+                <div>
                     <div class="mb-3">
                         <input type="password" name="password" placeholder="Votre mot de passe">
                     </div>

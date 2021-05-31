@@ -12,7 +12,7 @@
                 <form action="{{ route('inscription.store') }}" method="POST">
                     @csrf
 
-                    <div class="mb-3">
+                    <div>
                         <input type="text" name="nom" placeholder="Votre Nom" value="{{ old('nom') }}">
 
                         @error('nom')
@@ -22,7 +22,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
+                    <div>
                         <input type="text" name="prenom" placeholder="Votre Prénom" value="{{ old('prenom') }}">
 
                         @error('prenom')
@@ -32,7 +32,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
+                    <div>
                         <input type="email" name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
 
                         @error('email')
@@ -42,7 +42,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
+                    <div>
                         <input type="password" name="password" placeholder="Votre mot de passe">
 
                         @error('password')
@@ -52,7 +52,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
+                    <div>
                         <input type="password" name="password_confirmation" placeholder="Confirmez votre mot de passe">
 
                         @error('password_confirmation')
