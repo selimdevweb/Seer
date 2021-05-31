@@ -6,41 +6,41 @@
 
 @section('content')
 
-<div class="d-flex justify-content-center">
-<div class="user_form">
-    <h1 class="text-center">Connexion</h1>
-    <form action="{{ route('login.store') }}" method="POST">
-        @csrf
+    <div class="main__content">
+        <h1>Connexion</h1>
+        <div class="main__form">
+            <form action="{{ route('login.store') }}" method="POST">
+                @csrf
 
-        <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center">
 
-            <div class="mb-3 ">
-                <input type="email" name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
-            </div>
+                    <div class="mb-3 ">
+                        <input type="email" name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
+                    </div>
 
-            @error('email')
-                <div class="alert alert-danger" role="alert">
-                    {{ $message }}
+                    @error('email')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-            @enderror
-        </div>
 
-        <div class="d-flex flex-column align-items-center">
-            <div class="mb-3">
-                <input type="password" name="password" placeholder="Votre mot de passe">
-            </div>
+                <div class="d-flex flex-column align-items-center">
+                    <div class="mb-3">
+                        <input type="password" name="password" placeholder="Votre mot de passe">
+                    </div>
 
-            @error('password')
-                <div class="alert alert-danger" role="alert">
-                    {{ $message }}
+                    @error('password')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-            @enderror
+
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+
+                <a  class=" pb-2" href="{{ route('index.password') }}">Mot de passe oublié ?</a>
+            </form>
         </div>
-
-        <button type="submit" class="btn btn-primary">Envoyer</button>
-
-        <a  class=" pb-2" href="{{ route('index.password') }}">Mot de passe oublié ?</a>
-    </form>
-</div>
-</div>
+    </div>
 @endsection

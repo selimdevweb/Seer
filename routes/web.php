@@ -98,14 +98,10 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::get('/seer-infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');
     Route::post('/seer-infos', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
 
-    // USERS
-    Route::get('/admin-users', [AdminUsersController::class, 'index'])->name('user.dashboard')->middleware('auth');
-    Route::post('/admin-users', [AdminUsersController::class, 'store'])->name('file.store')->middleware('auth');
-
     // DECONNEXION
     Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.logout')->middleware('auth');
 
-    //Panier
+    // Panier
     Route::get('/ajout-panier/{billetterie}', [CartController::class, 'add'])->name('add.cart')->middleware('auth');
     Route::get('/panier', [CartController::class, 'index'])->name('index.cart')->middleware('auth');
     Route::get('/panier/supprimer/{id}', [CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
