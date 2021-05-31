@@ -14,7 +14,9 @@ use App\Http\Controllers\Users\FileController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\CheckoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\Auth\DashboardController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Admin\SeerInfosController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminUsersController;
@@ -46,6 +48,16 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     // CONNEXION
     Route::get('/connexion', [LoginController::class, 'index'])->name('login')->middleware('guest');
     Route::post('/connexion', [LoginController::class, 'store'])->name('login.store')->middleware('guest');
+
+
+    //MOt de passe oublié
+
+    Route::get('/forget-password', [ForgotPasswordController::class, 'getEmail'])->name('index.password');
+    Route::post('/forget-password', [ForgotPasswordController::class, 'postEmail'])->name('store.password');
+
+
+    Route::get('/reset-password/{token}', [ResetPasswordController::class, 'getPassword'])->name('index.reset');
+    Route::post('/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('store.reset');
 
     // DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard')->middleware('auth');
