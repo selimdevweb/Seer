@@ -87,8 +87,8 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::post('/seer-infos', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
 
     // USERS
-    /* Route::get('/admin-users', [AdminUsersController::class, 'index'])->name('user.dashboard')->middleware('auth');
-    Route::post('/admin-users', [AdminUsersController::class, 'store'])->name('file.store')->middleware('auth'); */
+    Route::get('/admin-users', [AdminUsersController::class, 'index'])->name('user.dashboard')->middleware('auth');
+    Route::post('/admin-users', [AdminUsersController::class, 'store'])->name('file.store')->middleware('auth');
 
     // DECONNEXION
     Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.logout')->middleware('auth');

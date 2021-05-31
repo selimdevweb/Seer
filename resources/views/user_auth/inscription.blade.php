@@ -6,84 +6,83 @@
 
 @section('content')
 
-    <div class="d-flex justify-content-center">
-        <div class="user_form">
-            <h1 class="text-center">Inscription</h1>
-        <form action="{{ route('inscription.store') }}" method="POST">
-            @csrf
+        <div class="main__content">
+            <h1>Inscription</h1>
+            <div class="main__form">
+                <form action="{{ route('inscription.store') }}" method="POST">
+                    @csrf
 
-            <div class="mb-3">
-                <input type="text" name="nom" placeholder="Votre Nom" value="{{ old('nom') }}">
+                    <div class="mb-3">
+                        <input type="text" name="nom" placeholder="Votre Nom" value="{{ old('nom') }}">
 
-                @error('nom')
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
+                        @error('nom')
+                            <div class="alert alert-danger" role="alert">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                @enderror
-            </div>
 
+                    <div class="mb-3">
+                        <input type="text" name="prenom" placeholder="Votre Prénom" value="{{ old('prenom') }}">
 
-            <div class="mb-3">
-                <input type="text" name="prenom" placeholder="Votre Prénom" value="{{ old('prenom') }}">
-
-                @error('prenom')
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
+                        @error('prenom')
+                            <div class="alert alert-danger" role="alert">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                @enderror
-            </div>
 
+                    <div class="mb-3">
+                        <input type="email" name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
 
-            <div class="mb-3">
-                <input type="email" name="email" placeholder="Votre adresse mail" value="{{ old('email') }}">
+                        @error('email')
+                            <div class="alert alert-danger" role="alert">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
-                @error('email')
-                <div class="alert alert-danger" role="alert">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
+                    <div class="mb-3">
+                        <input type="password" name="password" placeholder="Votre mot de passe">
 
-            <div class="mb-3">
-                <input type="password" name="password" placeholder="Votre mot de passe">
+                        @error('password')
+                            <div class="alert alert-danger" role="alert">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
-                @error('password')
+                    <div class="mb-3">
+                        <input type="password" name="password_confirmation" placeholder="Confirmez votre mot de passe">
+
+                        @error('password_confirmation')
+                            <div class="alert alert-danger" role="alert">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="main__formRgpd">
+                        <div>
+                            <input type="checkbox" value=2 name="rgpd" id="flexCheckDefault">
+                        </div>
+                        <label for="flexCheckDefault">
+                            <div>
+                                Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information de la CNIL.
+                            </div>
+                        </label>
+                    </div>
+
+                    @error('rgpd')
                         <div class="alert alert-danger" role="alert">
                             {{ $message }}
                         </div>
-                @enderror
+                    @enderror
+
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
             </div>
-
-            <div class="mb-3">
-                <input type="password" name="password_confirmation" placeholder="Confirmez votre mot de passe">
-
-                @error('password_confirmation')
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-
-            <div class="d-flex justify-content-center align-items-center ">
-                <div>
-                    <input type="checkbox" value=2 name="rgpd" id="flexCheckDefault">
-                </div>
-                <label for="flexCheckDefault">
-                    <div>
-                        Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information de la CNIL.
-                    </div>
-                </label>
-            </div>
-            @error('rgpd')
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
-                    </div>
-            @enderror
-
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
         </div>
-    </div>
 @endsection
 
 
