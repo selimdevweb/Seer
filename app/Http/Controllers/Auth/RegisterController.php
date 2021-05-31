@@ -25,13 +25,13 @@ class RegisterController extends Controller
             'rgpd'=>'required',
         ]);
 
-/*         User::create([
+        User::create([
             'nom'=>$request->nom,
             'prenom'=>$request->prenom,
             'rgpd'=>$request->rgpd,
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
-        ]); */
+        ]);
 
         auth()->attempt($request->only('email', 'password'));
         Mail::to(Auth()->user())->send(new inscriptionMail);
