@@ -1,1 +1,1 @@
-Bienvenue sur SEER !
+<h1> Bienvenue sur SEER !</h1>

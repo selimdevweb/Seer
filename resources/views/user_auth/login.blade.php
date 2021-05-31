@@ -39,7 +39,7 @@
 
         <button type="submit" class="btn btn-primary">Envoyer</button>
 
-        <a href="{{ route('password.index') }}" class=" pb-2" >Mot de passe oublié ?</a>
+        <a  class=" pb-2" href="{{ route('index.password') }}">Mot de passe oublié ?</a>
     </form>
 </div>
 </div>
