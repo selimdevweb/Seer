@@ -167,7 +167,7 @@
         </div>
     @endforeach
         </article>
-=======
+
         @endif
 
         @elseif (auth()->user()->status ==1)
@@ -193,7 +193,6 @@
                 </article>
             </div>
         @endif
->>>>>>> 1637e357a82067dc54dc7045284c632c93dff85c
     </div>
 
 @endsection
