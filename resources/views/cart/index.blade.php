@@ -5,18 +5,17 @@
 @endsection
 
 @section('content')
-    <section>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <div>
-                <h1>Votre panier</h1>
-            </div>
-            <table class="admin_tableau user_card">
+
+    <div class="main__content">
+        <h1>Votre panier</h1>
+
+        <div class="main__tableau">
+            <table>
                 <thead>
                     <tr>
                         <th>Produit(s)</th>
                         <th>Prix</th>
                         <th>Quantité(s)</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -25,19 +24,30 @@
                         <td scope="row">Colis secs {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}</td>
                         <td scope="row">{{ \Cart::get($billetterie->id)->getPriceSum()}} €</td>
                         <td scope="row">
+<<<<<<< HEAD
                             <form action="{{ route('cart.update', $billetterie->id) }}" class="user_shop">
                                 @csrf
                                 <input type="number" name="quantity" value="{{ $billetterie->quantity }}">
                                 <input type="submit" value="Valider">
                             </form>
                         </td>
+=======
+                            <div class="main__form">
+                                <form action="{{ route('cart.update', $billetterie->id) }}">
+                                    @csrf
+>>>>>>> 1637e357a82067dc54dc7045284c632c93dff85c
 
+                                    <input type="number" name="quantity" value="{{ $billetterie->quantity }}">
+                                    <button type="submit">Commander</button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-    </section>
+    </div>
 @endsection
 
 
