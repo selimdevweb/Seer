@@ -19,8 +19,6 @@
                 <span>Vos documents sont en cours de validations merci d'attendre la fin de cette étape</span>
             </article>
         @endif
-
-<<<<<<< HEAD
     @if (auth()->user()->status == 2)
         <div class="alert alert-danger text-center">
             <span>Vos documents sont refusé merci de renvoyer vos documents avec le formulaire ci-dessous !</span>
@@ -32,7 +30,6 @@
             <div class="user_form">
                 <form action="{{ route('file.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-=======
         @if (auth()->user()->status == 0 | auth()->user()->status == 2)
 
         @if (auth()->user()->status == 2)
@@ -40,7 +37,7 @@
                 <span>Vos documents sont refusé merci de renvoyer vos documents avec le formulaire ci-dessous !</span>
             </article>
         @endif
->>>>>>> 1637e357a82067dc54dc7045284c632c93dff85c
+
 
         @if (!$files->count() > 0)
                 <div class="main__form">
