@@ -22,13 +22,13 @@
                 <tbody>
                     @foreach ($billetteries as $billetterie)
                     <tr>
-                        <td scope="row">{{ $billetterie->name }}</td>
+                        <td scope="row">Colis secs {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}</td>
                         <td scope="row">{{ \Cart::get($billetterie->id)->getPriceSum()}} €</td>
                         <td scope="row">
                             <form action="{{ route('cart.update', $billetterie->id) }}" class="user_shop">
                                 @csrf
                                 <input type="number" name="quantity" value="{{ $billetterie->quantity }}">
-                                <input type="submit" value="Commander">
+                                <input type="submit" value="Valider">
                             </form>
                         </td>
 

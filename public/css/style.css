@@ -45,7 +45,7 @@ h1 {
     flex-direction: row;
 }
 
-/*
+
 .bg_primary{
     background: #ebf3ff!important;
 }
@@ -128,7 +128,7 @@ h1 {
 }
 
 /* nav */
-/* .bg-light{
+.bg-light{
     background-color: white !important;
 }
 .navbar a{
@@ -157,10 +157,10 @@ h1 {
     text-decoration: none;
     background: #e0f3ff;
     color: #3f6ad8;
-}  */
+}
 
 /* content */
-/* .admin_content{
+.admin_content{
     width:100%;
     background-color: #f1f4f6;
 }
@@ -169,11 +169,13 @@ h1 {
 }
 
 .user_card{
+    margin: 15px;
+    padding: 10px;
     background-color: white;
     box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
 }
 .user_dashboard{
-    height: 450px;
+    height: auto;
     width: 1000px;
     border-radius: 15px;
 }
@@ -262,24 +264,24 @@ margin-bottom: 20px;
 .user_shop input{
     outline: none;
     border: none;
-    width: 100px;
+    width: 57px;
     border-bottom: 2px solid rgba(26,54,126,0.125);
 }
 .admin_tableau thead th{
-    padding: 10px 30px 10px 10px;
+    padding: 5px 20px 5px 5px;
     min-width: 43.2px;
     color: rgb(73, 80, 87);
     border: 1px solid rgb(233, 236, 239);
 }
 
 .admin_tableau td{
-    padding: 10px 30px 10px 10px;
+    padding: 5px 20px 5px 5px;
     color: rgb(73, 80, 87);
     border: 1px solid rgb(233, 236, 239);
-} */
+}
 
 /* CSS OLD */
-/* .direction_colonne{
+.direction_colonne{
     flex-direction: column;
 }
 .direction_row{
@@ -313,12 +315,12 @@ justify-content: center;
 }
 .content_between{
     justify-content: space-between;
-} */
+}
 /* form {
     width: 300px;
     height: 300px;
 } */
-/* input{
+input{
     width: 100%;
 }
 #customFile{
@@ -353,7 +355,7 @@ footer{
     width: 100% !important;
     background-color: black;
     color: white;
-} */
+}
 
 /* Form */
 textarea{
@@ -403,7 +405,18 @@ input{
 
     /* font-size: 30px; */
 }
-
+/* table {
+    display: flex;
+    flex-direction: column;
+}
+tr {
+    display: flex;
+    flex-direction: column;
+}
+thead {
+    display: flex;
+    flex-direction: column;
+} */
 
 @media screen and (orientation: portrait){
     h1{
