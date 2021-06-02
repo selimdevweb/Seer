@@ -15,7 +15,7 @@ class SeerInfosController extends Controller
      */
     public function index()
     {
-        return view('admin_auth.seer_infos');
+        return view('admin_auth.seer-infos');
     }
 
     /**
@@ -68,11 +68,11 @@ class SeerInfosController extends Controller
      */
     public function edit($id)
     {
-        /* $infos = DB::table('seer_infos')
+        $infos = DB::table('seer_infos')
         ->where('id', $id)
         ->first();
 
-        return view('admin_auth.seer_infos')->with('infos', $infos); */
+        return view('admin_auth.seer_infos')->with('infos', $infos);
     }
 
     /**
@@ -84,7 +84,7 @@ class SeerInfosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /* $request->validate([
+        $request->validate([
             'description' => 'required',
             'adresse' => 'required',
         ]);
@@ -95,7 +95,7 @@ class SeerInfosController extends Controller
             'adresse' => $request->input('adresse'),
         ]);
 
-        return redirect('/admin-dashboard'); */
+        return redirect('/admin-dashboard');
     }
 
     /**

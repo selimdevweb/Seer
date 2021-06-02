@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeController;/*
 use App\Http\Controllers\StripeController;
-use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\PasswordController; */
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Users\FileController;
 
@@ -18,8 +18,8 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Admin\SeerInfosController;
-use App\Http\Controllers\Admin\AdminLoginController;
-use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\AdminLoginController;/*
+use App\Http\Controllers\Admin\AdminUsersController; */
 use App\Http\Controllers\Admin\AdminLogoutController;
 use App\Http\Controllers\Admin\BilletterieController;
 use App\Http\Controllers\Admin\UtilisateurController;
@@ -108,7 +108,8 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 
     // SEER INFOS
     Route::get('/seer-infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');
-    Route::post('/seer-infos', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
+    Route::post('/seer-infos/create', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
+    Route::post('/seer-infos', [SeerInfosController::class, 'edit'])->name('edit_infos')->middleware('auth');
 
     // DECONNEXION
     Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.logout')->middleware('auth');
