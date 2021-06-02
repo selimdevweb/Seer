@@ -82,8 +82,7 @@
 
                     @foreach ($billeteries as $billetterie)
                         <div class="main__cardBilletterie">
-                                <h2>Colis secs - {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}</h2>
-                                <h3>{{ $billetterie->prix }}€</h3>
+                                <h2>Colis secs du : {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }} {{ $billetterie->prix }}€</h2>
                                 <img src="{{ asset('images/colis-seer.jpg') }}" >
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacinia bibendum massa, in dignissim dui blandit nec. Morbi lobortis elit mollis efficitur consequat. Etiam varius sem eu tempor feugiat. Vestibulum convallis tortor sed ex blandit, eget cursus nibh tempor. Duis laoreet tincidunt sem, in consectetur ligula facilisis.</p>
                                 <input type="number" name="quantity" value="1">
