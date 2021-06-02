@@ -106,7 +106,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::post('/admin-billetterie/valid/{id}', [UtilisateurController::class, 'valid'])->name('admin.utilisateur.valid')->middleware('auth');
     Route::post('/admin-billetterie/invalid/{user}', [UtilisateurController::class, 'invalid'])->name('admin.utilisateur.invalid')->middleware('auth');
 
-    // SEER INFOS
+    // SEER INFOS SELIM
     Route::get('/seer-infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');
     Route::post('/seer-infos/create', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
     Route::post('/seer-infos', [SeerInfosController::class, 'edit'])->name('edit_infos')->middleware('auth');
