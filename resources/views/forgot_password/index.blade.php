@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Seer | Oubli MDP
+    Seer | Mot de passe oublié
 @endsection
 @section('content')
 
@@ -10,7 +10,7 @@
      <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-              <div class="card-header">Reset Password</div>
+              <div class="card-header">Mot de passe oublié</div>
 
                <div class="card-body">
                     @if (session('status'))
