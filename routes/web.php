@@ -37,15 +37,12 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 */
 
 /* SEER */
-
-Route::get('/seer-infos', function(){
+Route::get('/seerasso-infos', function(){
     return view('SEER.seer_infos');
-})->name('seer_infos');
-
+})->name('seerasso_infos');
 Route::get('/seer-team', function(){
     return view('SEER.team_seer');
 })->name('seer_team');
-
 /* HOME */
 
     Route::get('/', [HomeController::class, 'index'])->name('home');

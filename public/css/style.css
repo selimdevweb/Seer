@@ -19,6 +19,9 @@ h1 {
     color: rgb(67, 94, 190);
     font-size: 2.5em;
 }
+h2 {
+    font-size: 20px;
+}
 
 textarea {
     width: 300px;
@@ -120,6 +123,9 @@ input, button, textarea {
 
 .main__formRgpd label {
     margin: 0 0 20px 15px;
+}
+.main__formRgpd label p {
+    margin-bottom: -15px;
 }
 
 .main__form form button[type="submit"] {

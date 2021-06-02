@@ -21,7 +21,7 @@ class LoginController extends Controller
 
             /* Optimisation  role*/
         if (!auth()->attempt($request->only('email', 'password'), $request->remember))
-            return back()->with('status','invalid login details');
+            return back()->with('status','Identifiants ou mot de passe invalides');
 
         return redirect()->route('user.dashboard');
     }

@@ -8,6 +8,11 @@
 
     <div class="main__content">
         <h1>Connexion</h1>
+        @if (session()->has('status'))
+        <article class="alert alert-danger text-center">
+            <span>{{ session()->get('status') }}</span>
+        </article>
+        @endif
         <div class="main__form">
             <form action="{{ route('login.store') }}" method="POST">
                 @csrf
