@@ -1,4 +1,4 @@
-<header>
+<header class="main__nav">
     <nav class="d-flex flex-column align-items-left justify-content-center">
         <h2>Navigation</h2>
         @guest

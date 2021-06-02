@@ -10,13 +10,12 @@
     </head>
     <body>
 
-        <main class="d-flex">
-            <section class="admin_nav">
-                @include('layouts_admin.header')
-            </section>
-            <section class="admin_content">
-                @yield('content')
-            </section>
+        <main>
+
+            @include('layouts_admin.header')
+
+            @yield('content')
+
         </main>
 
         @include('layouts_admin.footer')

@@ -1,21 +1,35 @@
-h1{
+/* 1 - General */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+}
+
+h1 {
     margin-bottom: 30px;
     text-align: center;
 }
 
-main{
-    height: 100vh;
-}
-textarea{
+textarea {
     width: 300px;
 }
-input{
+
+input {
     width: 300px;
     margin: 5px;
     padding: 5px;
 }
 
-/* general */
+input, button, textarea {
+    outline: none !important;
+    border: none;
+}
 
 .admin_bg_primary{
     background: #3f6ad8!important;
@@ -38,15 +52,18 @@ input{
     color: white;
 }
 
-/* nav */
-.admin_nav{
+/* 2 - Nav */
+
+.main__nav {
     width:300px;
     background-color: white;
 }
-.admin_nav nav{
+
+.main__nav nav {
     height: 400px;
 }
-.admin_nav h2{
+
+.main__nav h2 {
     text-transform: uppercase;
     text-align: center;
     margin: 25px .75rem 25px .75rem;
@@ -54,42 +71,59 @@ input{
     font-size: .8rem;
     font-weight: bold;
 }
-.admin_nav a{
+
+.main__nav a {
     padding: 0 1.5rem 0;
     height: 2rem;
     color: #6c757d;
     font-size: 14.08px;
     line-height: 2rem;
 }
-.admin_nav a:hover{
+
+.main__nav a:hover {
     text-decoration: none;
     background: #e0f3ff;
     color: #3f6ad8;
 }
 
-/* content */
-.admin_content{
+/* 3 - Content */
+
+.main__content {
     width:100%;
     background-color: #f1f4f6;
 }
-.admin_content h1{
+
+.main__content h1 {
     margin: 50px;
 }
 
-.admin_card{
-    background-color: white;
-    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
-}
-.admin_card h6{
-    color: #3f6ad8 !important;
-}
-.admin_dashboard_card{
+.main__contentCard {
     margin-right: 20px;
     margin-left: 20px;
     height: 500px;
     width: 500px;
+    width: 18rem;
 }
-.admin_card_form{
+
+.main__contentCard h6 {
+    color: #3f6ad8 !important;
+}
+
+/* a modifier */
+
+.admin_card {
+    background-color: white;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+}
+
+/* .main__contentCard {
+    background-color: white;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+} */
+
+/* 4 - Form */
+
+.main__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,24 +131,30 @@ input{
     height: 350px;
     width: 350px;
 }
-.admin_card_form form{
+
+.main__form form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.admin_card_form input:not(input[type="submit"]), textarea{
+
+.main__form input:not(input[type="submit"]), textarea {
     outline: none;
     border: none;
     border-bottom: 2px solid rgba(26,54,126,0.125);
 }
-.admin_card_form textarea{
+
+.main__form textarea {
     margin-bottom: 25px;
     height: 150px;
 }
-.admin_card_form input[type="submit"]{
+
+.main__form input[type="submit"] {
     margin-top: 25px;
 }
+
+/* 5 - Table */
 
 .admin_tableau{
     margin-left: 20px;
