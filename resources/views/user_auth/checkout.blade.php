@@ -16,15 +16,8 @@
 
                 <div>
                     <div class='col-xs-12 form-group required'>
-                        <label class='control-label'>Nom</label> <input class='form-control'
+                        <input class='form-control'
                             size='4' type='text' value="{{ auth()->user()->nom }}">
-                    </div>
-                </div>
-
-                <div>
-                    <div class='col-xs-12 form-group required'>
-                        <label class='control-label'>Total : </label>
-                        <input type="text" class='form-control' value="{{ \Cart::get($billetterie->id)->getPriceSum()  }} €" disabled>
                     </div>
                 </div>
 
@@ -32,29 +25,28 @@
 
                 <div>
                     <div class='required'>
-                        <label class='control-label'>Numéro de carte</label> <input autocomplete='off'
-                            class='form-control card-num' size='20' type='text'>
+                        <input autocomplete='off'
+                            class='form-control card-num' size='20' type='text' placeholder="Numéro de carte">
                     </div>
                 </div>
 
                 <div class='main__checkout'>
                     <div class='required'>
-                        <label class='control-label'>Cryptogramme</label>
-                        <input autocomplete='off' class='form-control card-cvc' placeholder=''
+                        <input autocomplete='off' class='form-control card-cvc' placeholder='CVC'
                             size='4' type='text'>
                     </div>
                     <div class='required'>
-                        <label class='control-label'>Mois</label> <input
-                            class='form-control card-expiry-month' placeholder='' size='2' type='text'>
+                        <input
+                            class='form-control card-expiry-month' placeholder='Mois' size='2' type='text'>
                     </div>
                     <div class='required'>
-                        <label class='control-label'>Année</label> <input
-                            class='form-control card-expiry-year' placeholder='' size='4' type='text'>
+                        <input
+                            class='form-control card-expiry-year' placeholder='Année' size='4' type='text'>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <button class="btn btn-success btn-lg btn-block" type="submit">Commander</button>
+                    <button class="btn btn-success btn-lg btn-block" type="submit">Commander {{ \Cart::get($billetterie->id)->getPriceSum()  }} €</button>
                 </div>
             </form>
         @endforeach
