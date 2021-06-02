@@ -40,6 +40,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 Route::get('/seerasso-infos', function(){
     return view('SEER.seer_infos');
 })->name('seerasso_infos');
+
 Route::get('/seer-team', function(){
     return view('SEER.team_seer');
 })->name('seer_team');
