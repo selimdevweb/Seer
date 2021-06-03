@@ -15,7 +15,7 @@ class SeerInfosController extends Controller
      */
     public function index()
     {
-        return view('admin_auth.seer_infos');
+        return view('admin-auth.informations-complementaires');
     }
 
     /**
@@ -35,7 +35,7 @@ class SeerInfosController extends Controller
             'adresse' => $request->input('adresse'),
         ]);
 
-        return redirect('/admin-dashboard');
+        return redirect('/tableau-de-bord');
     }
 
     /**
@@ -95,7 +95,7 @@ class SeerInfosController extends Controller
             'adresse' => $request->input('adresse'),
         ]);
 
-        return redirect('/admin-dashboard'); */
+        return redirect('/tableau-de-bord'); */
     }
 
     /**
@@ -107,6 +107,6 @@ class SeerInfosController extends Controller
     public function destroy($id)
     {
         /* $id ->delete();
-        return redirect('/admin-dashboard'); */
+        return redirect('/tableau-de-bord'); */
     }
 }

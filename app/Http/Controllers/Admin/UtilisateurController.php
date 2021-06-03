@@ -21,8 +21,8 @@ class UtilisateurController extends Controller
             ->join('files', 'files.user_id', '=', 'users.id')
             ->where('users.role', 0)
             ->get();
-/* optimiser */
-        return view('admin_auth.valider')->with('users', $users);
+
+        return view('admin-auth.gestion-des-membres')->with('users', $users);
     }
 
     /**
@@ -80,7 +80,7 @@ class UtilisateurController extends Controller
         //
     }
 
-     /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -113,6 +113,7 @@ class UtilisateurController extends Controller
         $image = public_path('pdf/').$request->pdf;
         DB::table('files')->where('user_id', $id)->delete();
         File::delete($image);
+
         return redirect()->route('admin.utilisateur')->with('message', 'Ce pdf est bien supprimé');
     }
 
@@ -122,7 +123,7 @@ class UtilisateurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   /*  public function destroy(File $id)
+    /*  public function destroy(File $id)
     {
         $image = public_path('pdf/').$product->cover_img;
         File::delete($image);

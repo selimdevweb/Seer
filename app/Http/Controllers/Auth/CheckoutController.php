@@ -18,7 +18,7 @@ class CheckoutController extends Controller
     {
 
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
-        return view('user_auth.checkout')->with('billetteries',$billetteries);
+        return view('user-auth.paiement')->with('billetteries',$billetteries);
     }
 
 

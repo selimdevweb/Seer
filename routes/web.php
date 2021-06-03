@@ -85,30 +85,26 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 
 /* ADMIN */
 
-    // CONNEXION
-    Route::get('/admin-connexion', [AdminLoginController::class, 'index'])->name('admin_login')->middleware('guest');
-    Route::post('/admin-connexion', [AdminLoginController::class, 'store'])->name('admin_login.store')->middleware('guest');
-
     // DASHBOARD
-    Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
-    Route::post('/admin-dashboard', [AdminDashboardController::class, 'store'])->name('admin.dashboard')->middleware('auth');
+    Route::get('/tableau-de-bord', [AdminDashboardController::class, 'index'])->name('admin.tableau-de-bord')->middleware('auth');
+    Route::post('/tableau-de-bord', [AdminDashboardController::class, 'store'])->name('admin.tableau-de-bord')->middleware('auth');
 
     // BILLETTERIE
-    Route::get('/admin-billetterie', [BilletterieController::class, 'index'])->name('admin.billetterie')->middleware('auth');
-    Route::post('/admin-billetterie', [BilletterieController::class, 'store'])->name('admin.billetterie.store')->middleware('auth');
+    Route::get('/billetterie', [BilletterieController::class, 'index'])->name('admin.billetterie')->middleware('auth');
+    Route::post('/billetterie', [BilletterieController::class, 'store'])->name('admin.billetterie.store')->middleware('auth');
 
-    Route::get('/admin-billetterie/{id}', [BilletterieController::class, 'edit'])->name('admin.billetterie.edit')->middleware('auth');
-    Route::post('/admin-billetterie/{id}', [BilletterieController::class, 'update'])->name('admin.billetterie.update')->middleware('auth');
-    Route::delete('/admin-billetterie/{id}', [BilletterieController::class, 'destroy'])->name('admin.billetterie.destroy')->middleware('auth');
+    Route::get('/billetterie/{id}', [BilletterieController::class, 'edit'])->name('admin.billetterie.edit')->middleware('auth');
+    Route::post('/billetterie/{id}', [BilletterieController::class, 'update'])->name('admin.billetterie.update')->middleware('auth');
+    Route::delete('/billetterie/{id}', [BilletterieController::class, 'destroy'])->name('admin.billetterie.destroy')->middleware('auth');
 
     // VALIDATION UTILISATEUR
-    Route::get('/admin-utilisateur', [UtilisateurController::class, 'index'])->name('admin.utilisateur')->middleware('auth');
+    Route::get('/gestion-des-membres', [UtilisateurController::class, 'index'])->name('admin.gestion-des-membres')->middleware('auth');
     Route::post('/admin-billetterie/valid/{id}', [UtilisateurController::class, 'valid'])->name('admin.utilisateur.valid')->middleware('auth');
     Route::post('/admin-billetterie/invalid/{user}', [UtilisateurController::class, 'invalid'])->name('admin.utilisateur.invalid')->middleware('auth');
 
     // SEER INFOS
-    Route::get('/seer-infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');
-    Route::post('/seer-infos', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
+    Route::get('/informations-complementaires', [SeerInfosController::class, 'index'])->name('admin.informations-complementaires')->middleware('auth');
+    Route::post('/informations-complementaires', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
 
     // DECONNEXION
-    Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.logout')->middleware('auth');
+    Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.deconnexion')->middleware('auth');

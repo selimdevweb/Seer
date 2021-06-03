@@ -28,6 +28,6 @@ class inscriptionMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.inscription');
+        return $this->view('user-auth.mails.inscription');
     }
 }

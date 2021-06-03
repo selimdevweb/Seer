@@ -1,4 +1,4 @@
-@extends('layouts_admin.app')
+@extends('admin-auth.layouts.app')
 
 @section('title')
     Admin | Gestion des membres

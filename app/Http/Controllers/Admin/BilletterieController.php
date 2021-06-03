@@ -53,7 +53,7 @@ class BilletterieController extends Controller
             'admin_id' => auth()->user()->id
         ]);
 
-        return redirect('/admin-dashboard');
+        return redirect('/tableau-de-bord');
     }
 
     /**
@@ -79,7 +79,7 @@ class BilletterieController extends Controller
         ->where('id', $id)
         ->first();
 
-        return view('admin_auth.billetterie_update')->with('billetterie', $billetterie);
+        return view('admin-auth.billetterie-update')->with('billetterie', $billetterie);
     }
 
     /**
@@ -109,7 +109,7 @@ class BilletterieController extends Controller
             'admin_id' => auth()->user()->id
         ]);
 
-        return redirect('/admin-dashboard');
+        return redirect('/tableau-de-bord');
     }
 
     /**
@@ -121,6 +121,6 @@ class BilletterieController extends Controller
 
     public function destroy(Billetterie $id){
         $id ->delete();
-        return redirect('/admin-dashboard')->with('message', 'supprimé ');
+        return redirect('/tableau-de-bord')->with('message', 'supprimé ');
     }
 }

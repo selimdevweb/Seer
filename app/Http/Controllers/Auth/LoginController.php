@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function index(){
-        return view('user_auth.login');
+        return view('user-auth.connexion');
     }
 
     public function store(Request $request){

@@ -8,15 +8,14 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        if (auth()->user() == null) {
 
-            return view('index');
-        }
-        else if(auth()->user() !== null && auth()->user()->role == 1 ){
-            return redirect('/admin-dashboard');
-        }
-        else {
-            return view('index');
-        }
+        if (auth()->user() == null)
+            return view('home.index');
+
+        else if(auth()->user() !== null && auth()->user()->role == 1)
+            return redirect('/tableau-de-bord');
+
+        else
+            return view('home.index');
     }
 }

@@ -27,7 +27,7 @@ class DashboardController extends Controller
             ->take(1)
             ->get();
 
-            return view('user_auth.dashboard')->with(
+            return view('user-auth.dashboard')->with(
                 [
                     'files' => $files,
                     'billeteries' =>$billetteries
@@ -35,7 +35,7 @@ class DashboardController extends Controller
             );
         }
         else if (auth()->user()->role==1)
-            return redirect('/admin-dashboard');
+            return redirect('/tableau-de-bord');
     }
 
     /**

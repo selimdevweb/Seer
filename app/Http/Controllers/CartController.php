@@ -23,8 +23,9 @@ class CartController extends Controller
 
     public function index(){
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
-        return view('cart.index')->with('billetteries',$billetteries);
+        return view('user-auth.cart.index')->with('billetteries',$billetteries);
     }
+
     public function destroy($id){
         \Cart::session(auth()->user()->id)->remove($id);
         return back();
@@ -38,7 +39,7 @@ class CartController extends Controller
                 'value' => request('quantity')
             )
         ]
-          );
-          return \redirect()->route('user.checkout');
+        );
+        return \redirect()->route('user.checkout');
     }
 }

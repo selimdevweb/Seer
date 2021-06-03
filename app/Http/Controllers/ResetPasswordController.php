@@ -10,33 +10,30 @@ use Illuminate\Support\Facades\Hash;
 class ResetPasswordController extends Controller
 {
     public function getPassword($token) {
-
         return view('forgot_password.reset', ['token' => $token]);
-     }
+    }
 
-     public function updatePassword(Request $request)
-     {
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|string|min:6|confirmed',
+            'password_confirmation' => 'required'
+        ]);
 
-     $request->validate([
-         'email' => 'required|email|exists:users',
-         'password' => 'required|string|min:6|confirmed',
-         'password_confirmation' => 'required',
+        $updatePassword = DB::table('password_resets')
+                            ->where(['email' => $request->email, 'token' => $request->token])
+                            ->first();
 
-     ]);
+        if(!$updatePassword)
+            return back()->withInput()->with('error', 'Invalid token!');
 
-     $updatePassword = DB::table('password_resets')
-                         ->where(['email' => $request->email, 'token' => $request->token])
-                         ->first();
+        $user = User::where('email', $request->email)
+                    ->update(['password' => Hash::make($request->password)]);
 
-     if(!$updatePassword)
-         return back()->withInput()->with('error', 'Invalid token!');
+        DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-       $user = User::where('email', $request->email)
-                   ->update(['password' => Hash::make($request->password)]);
+        return redirect('/')->with('message', 'votre mot de passe a bien été mis à jour !');
 
-       DB::table('password_resets')->where(['email'=> $request->email])->delete();
-
-       return redirect('/')->with('message', 'Your password has been changed!');
-
-     }
+    }
 }

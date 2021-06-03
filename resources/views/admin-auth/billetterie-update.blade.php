@@ -1,4 +1,4 @@
-@extends('layouts_admin.app')
+@extends('admin-auth.layouts.app')
 
 @section('title')
     Admin | Billetterie du : {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}
@@ -7,8 +7,10 @@
 @section('content')
     <div class="main__content">
         <h1>Billetterie du : {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }}</h1>
+
+        {{-- css à refaire --}}
         <div class="d-flex justify-content-center">
-            <div class="admin_card_form admin_card">
+            <div class="main__contentCard admin_card">
                 <form action="{{ route('admin.billetterie.update', $billetterie->id) }}" method="post">
                     @csrf
 

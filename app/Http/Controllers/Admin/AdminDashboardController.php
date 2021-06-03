@@ -23,7 +23,7 @@ class AdminDashboardController extends Controller
             ->select('users.*', 'contacts.phone', 'orders.price')
             ->get(); */
 
-            return view('admin_auth.dashboard')->with('billetteries', $billetteries);
+            return view('admin-auth.tableau-de-bord')->with('billetteries', $billetteries);
         }
         else
             return redirect('/');

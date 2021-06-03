@@ -1,12 +1,12 @@
-@extends('layouts_admin.app')
+@extends('admin-auth.layouts.app')
 
 @section('title')
-    Admin | Informations complémentaire
+    Admin | Informations complémentaires
 @endsection
 
 @section('content')
     <div class="main__content">
-        <h1>Informations complémentaire</h1>
+        <h1>Informations complémentaires</h1>
 
         @if (session()->has('message'))
             <div class="w-4/5 m-auto mt-10 pl-2">

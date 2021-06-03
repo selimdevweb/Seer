@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class RegisterController extends Controller
 {
     public function index(){
-        return view('user_auth.inscription');
+        return view('user-auth.inscription');
     }
 
     public function store(Request $request){
