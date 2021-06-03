@@ -16,9 +16,8 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($token)
     {
-
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
         return view('user-auth.paiement')->with('billetteries',$billetteries);
     }

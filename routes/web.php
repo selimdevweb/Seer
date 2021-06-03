@@ -77,7 +77,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::get('/panier/update/{id}', [CartController::class, 'update'])->name('cart.update')->middleware('auth');
 
     // CHECKOUT
-    Route::get('/paiement', [CheckoutController::class, 'index'])->name('user.checkout')/* ->middleware('auth') */;
+    Route::get('/paiement/{token}', [CheckoutController::class, 'index'])->name('user.checkout')/* ->middleware('auth') */;
     Route::post('/paiement/{id}', [CheckoutController::class, 'makePayment'])->name('make-payment');
 
     // DECONNEXION
