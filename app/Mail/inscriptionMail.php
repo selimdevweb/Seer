@@ -26,6 +26,7 @@ class inscriptionMail extends Mailable
      *
      * @return $this
      */
+    
     public function build()
     {
         return $this->view('user-auth.mails.inscription');

@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 
 
-use App\Http\Controllers\HomeController;/*
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StripeController;
-use App\Http\Controllers\PasswordController; */
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Users\FileController;
 
@@ -18,8 +18,8 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Admin\SeerInfosController;
-use App\Http\Controllers\Admin\AdminLoginController;/*
-use App\Http\Controllers\Admin\AdminUsersController; */
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\AdminLogoutController;
 use App\Http\Controllers\Admin\BilletterieController;
 use App\Http\Controllers\Admin\UtilisateurController;
@@ -85,6 +85,10 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 
 /* ADMIN */
 
+    // CONNEXION
+    Route::get('/admin-connexion', [AdminLoginController::class, 'index'])->name('admin-login')->middleware('guest');
+    Route::post('/admin-connexion', [AdminLoginController::class, 'store'])->name('admin-login.store')->middleware('guest');
+
     // DASHBOARD
     Route::get('/tableau-de-bord', [AdminDashboardController::class, 'index'])->name('admin.tableau-de-bord')->middleware('auth');
     Route::post('/tableau-de-bord', [AdminDashboardController::class, 'store'])->name('admin.tableau-de-bord')->middleware('auth');
@@ -102,16 +106,9 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     Route::post('/admin-billetterie/valid/{id}', [UtilisateurController::class, 'valid'])->name('admin.utilisateur.valid')->middleware('auth');
     Route::post('/admin-billetterie/invalid/{user}', [UtilisateurController::class, 'invalid'])->name('admin.utilisateur.invalid')->middleware('auth');
 
-<<<<<<< HEAD
     // SEER INFOS
     Route::get('/informations-complementaires', [SeerInfosController::class, 'index'])->name('admin.informations-complementaires')->middleware('auth');
     Route::post('/informations-complementaires', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
-=======
-    // SEER INFOS SELIM
-    Route::get('/seer-infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');
-    Route::post('/seer-infos/create', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
-    Route::post('/seer-infos/update/{id}', [SeerInfosController::class, 'update'])->name('update_infos')->middleware('auth');
->>>>>>> 64d1c224f127762e42fc0bba4d5d3bddf3d506d3
 
     // DECONNEXION
     Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.deconnexion')->middleware('auth');
