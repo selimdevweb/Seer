@@ -25,7 +25,7 @@
                             <h5 class="card-title">Billeterie du {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y H:i') }}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Dernière mise à jour : </h6>
                             <p class="card-text">{{ $billetterie->nom }} {{ $billetterie->prenom }} le {{ \Carbon\Carbon::parse($billetterie->updated_at)->translatedFormat('d/m/Y') }}</p>
-                            <div class="d-flex flex-row justify-content-left align-items-center">
+                            <div class="d-flex flex-row justify-content-around align-items-center">
 
                                 <a href="{{ route('admin.billetterie.edit', $billetterie->id) }}" class="card-link admin_text_primary">Editer</a>
 

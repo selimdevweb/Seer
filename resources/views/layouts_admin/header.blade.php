@@ -10,7 +10,7 @@
             <a href="{{ route('admin.logout') }}" >Deconnexion</a>
             <h2>Réglages</h2>
             <a href="#" >Gestion page d'accueil</a>
-            <a href="{{ route('seer.index') }}">Informations Seer</a>
+            <a href="{{ route('seer.index') }}">Informations Billetterie</a>
         @endauth
     </nav>
 </header>

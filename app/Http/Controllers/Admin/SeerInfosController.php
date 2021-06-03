@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Seer_infos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class SeerInfosController extends Controller
@@ -15,7 +16,9 @@ class SeerInfosController extends Controller
      */
     public function index()
     {
-        return view('admin_auth.seer-infos');
+        $seer_infos = DB::table('seer_infos')
+        ->first();
+        return view('admin_auth.seer-infos')->with('seer_infos', $seer_infos);
     }
 
     /**
@@ -95,7 +98,7 @@ class SeerInfosController extends Controller
             'adresse' => $request->input('adresse'),
         ]);
 
-        return redirect('/admin-dashboard');
+        return back();
     }
 
     /**

@@ -15,7 +15,7 @@ class CreateSeerInfosTable extends Migration
     {
         Schema::create('seer_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
+            $table->text('description');
             $table->string('adresse');
             $table->timestamps();
         });

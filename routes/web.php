@@ -109,7 +109,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
     // SEER INFOS SELIM
     Route::get('/seer-infos', [SeerInfosController::class, 'index'])->name('seer.index')->middleware('auth');
     Route::post('/seer-infos/create', [SeerInfosController::class, 'create'])->name('create_infos')->middleware('auth');
-    Route::post('/seer-infos', [SeerInfosController::class, 'edit'])->name('edit_infos')->middleware('auth');
+    Route::post('/seer-infos/update/{id}', [SeerInfosController::class, 'update'])->name('update_infos')->middleware('auth');
 
     // DECONNEXION
     Route::get('/admin-deconnexion', [AdminLogoutController::class, 'destroy'])->name('admin.logout')->middleware('auth');

@@ -27,10 +27,13 @@ class DashboardController extends Controller
             ->take(1)
             ->get();
 
+            $seer_infos = DB::table('seer_infos')
+        ->first();
             return view('user_auth.dashboard')->with(
                 [
                     'files' => $files,
-                    'billeteries' =>$billetteries
+                    'billeteries' =>$billetteries,
+                    'seer_infos' =>$seer_infos
                 ]
             );
         }

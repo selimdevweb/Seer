@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use Stripe\Charge;
 use Stripe\Stripe;
+use App\Models\Billetterie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class CheckoutController extends Controller
@@ -24,7 +26,6 @@ class CheckoutController extends Controller
 
     public function makePayment(Request $request, $id)
     {
-
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
 
         foreach($billetteries as $billetterie){
@@ -38,7 +39,23 @@ class CheckoutController extends Controller
                 "description" => "Make payment and chill."
         ]);
 
+
+        $quantite = DB::table('billetteries')
+            ->orderBy('billetteries.updated_at', 'DESC')
+            ->take(1)
+            ->select('quantite')
+            ->first();
+
+
+
+        Billetterie::where('id', $id)
+        ->update([
+            'quantite' => $quantite->quantite - \Cart::session(auth()->user()->id)->getTotalQuantity(),
+        ]);
+
         \Cart::session(auth()->user()->id)->remove($id);
+
+
 
         return redirect()->route('user.dashboard')->with('message', 'Votre paiement de '.$prix . '€ est bien enregistré');
     }
