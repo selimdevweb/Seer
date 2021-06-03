@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Seer_infos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class SeerInfosController extends Controller
@@ -15,7 +16,13 @@ class SeerInfosController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         return view('admin-auth.informations-complementaires');
+=======
+        $seer_infos = DB::table('seer_infos')
+        ->first();
+        return view('admin_auth.seer-infos')->with('seer_infos', $seer_infos);
+>>>>>>> 64d1c224f127762e42fc0bba4d5d3bddf3d506d3
     }
 
     /**
@@ -68,11 +75,11 @@ class SeerInfosController extends Controller
      */
     public function edit($id)
     {
-        /* $infos = DB::table('seer_infos')
+        $infos = DB::table('seer_infos')
         ->where('id', $id)
         ->first();
 
-        return view('admin_auth.seer_infos')->with('infos', $infos); */
+        return view('admin_auth.seer_infos')->with('infos', $infos);
     }
 
     /**
@@ -84,7 +91,7 @@ class SeerInfosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /* $request->validate([
+        $request->validate([
             'description' => 'required',
             'adresse' => 'required',
         ]);
@@ -95,7 +102,11 @@ class SeerInfosController extends Controller
             'adresse' => $request->input('adresse'),
         ]);
 
+<<<<<<< HEAD
         return redirect('/tableau-de-bord'); */
+=======
+        return back();
+>>>>>>> 64d1c224f127762e42fc0bba4d5d3bddf3d506d3
     }
 
     /**

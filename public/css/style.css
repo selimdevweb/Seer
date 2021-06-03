@@ -197,11 +197,14 @@ input, button, textarea {
         margin-top: 25px 0 25px 0;
         font-size: 2em;
     }
+    .main__checkout .required {
+        margin: 0 !important;
+    }
 
     /* 2 - Main */
 
     .main__content {
-        width: 300px;
+        width: 320px;
     }
 
     .main__cardBilletterie h2 {

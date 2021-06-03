@@ -69,7 +69,7 @@ class FileController extends Controller
 
         /* afficage de confirmation */
 
-        return redirect('/dashboard')->with('message', 'Votre publication est en ligne ');
+        return back()->with('message', 'Votre document est transféré vers les administrateurs');
     }
 
     /**
