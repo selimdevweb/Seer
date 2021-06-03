@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Billetterie;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -39,6 +40,7 @@ class CartController extends Controller
             )
         ]
           );
-          return \redirect()->route('user.checkout');
+          $token = Str::random(60);
+          return \redirect()->route('user.checkout', $token)->with('token', $token);
     }
 }
