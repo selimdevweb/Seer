@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Other;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class ConnexionController extends Controller
 {
     public function index(){
-        return view('user-auth.connexion');
+        return view('other.connexion');
     }
 
     public function store(Request $request){
@@ -18,7 +18,6 @@ class LoginController extends Controller
             'password'=>'required'
         ]);
 
-        /* Optimisation  role*/
         if (!auth()->attempt($request->only('email', 'password'), $request->remember))
             return back()->with('status','Identifiants ou mot de passe invalides');
 

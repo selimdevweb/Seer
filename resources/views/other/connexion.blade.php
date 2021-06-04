@@ -14,7 +14,7 @@
         </article>
         @endif
         <div class="main__form">
-            <form action="{{ route('login.store') }}" method="POST">
+            <form action="{{ route('other.connexion.store') }}" method="POST">
                 @csrf
 
                     <div class="mb-3 ">

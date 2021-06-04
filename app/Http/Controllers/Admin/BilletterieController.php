@@ -121,6 +121,7 @@ class BilletterieController extends Controller
 
     public function destroy(Billetterie $id){
         $id ->delete();
+
         return redirect('/tableau-de-bord')->with('message', 'supprimé ');
     }
 }

@@ -5,13 +5,13 @@
         @endguest
         @auth
             <h2>Navigation</h2>
-            <a href="{{ route('admin.tableau-de-bord') }}" >Tableau de bord</a>
-            <a href="{{ route('admin.gestion-des-membres') }}" >Gestion des membres</a>
-            <a href="{{ route('admin.deconnexion') }}" >Deconnexion</a>
+            <a href="{{ route('admin.tableau-de-bord.index') }}" >Tableau de bord</a>
+            <a href="{{ route('admin.gestion-des-membres.index') }}" >Gestion des membres</a>
+            <a href="{{ route('other.deconnexion.destroy') }}" >Deconnexion</a>
 
             <h2>Réglages</h2>
             <a href="#" >Gestion page d'accueil</a>
-            <a href="{{ route('admin.informations-billetterie') }}">Informations billetterie</a>
+            <a href="{{ route('admin.informations-billetterie.index') }}">Informations billetterie</a>
         @endauth
     </nav>
 </header>

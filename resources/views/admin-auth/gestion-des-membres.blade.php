@@ -44,7 +44,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td><a href="{{ asset('pdf/'.$user->file_path) }}" target="_blank">{{ $user->file_path }}</a></td>
                                 <td>
-                                    <form action="{{ route('admin.utilisateur.valid', $user->user_id) }}" method="post">
+                                    <form action="{{ route('admin.gestion-des-membres.valid', $user->user_id) }}" method="post">
                                         @csrf
 
                                         <input type="hidden" value="1" name="valider">
@@ -52,7 +52,7 @@
                                     </form>
                                 </td>
                                 <td scope="row">
-                                    <form action="{{ route('admin.utilisateur.invalid', $user->user_id) }}" method="post">
+                                    <form action="{{ route('admin.gestion-des-membres.invalid', $user->user_id) }}" method="post">
                                         @csrf
 
                                         <input type="hidden" value="2" name="invalider">

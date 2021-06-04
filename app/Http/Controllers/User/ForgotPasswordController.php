@@ -14,7 +14,6 @@ class ForgotPasswordController extends Controller
         return view('forgot_password.index');
     }
 
-
     public function postEmail(Request $request)
     {
 

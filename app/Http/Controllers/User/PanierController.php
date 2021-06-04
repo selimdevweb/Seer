@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Models\Billetterie;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CartController extends Controller
+class PanierController extends Controller
 {
     public function add(Billetterie $billetterie){
-        // add the product to cart
+
         \Cart::session(auth()->user()->id)->add(array(
             'id' => $billetterie->id,
             'name' => $billetterie->titre,
@@ -19,11 +19,13 @@ class CartController extends Controller
             'attributes' => array(),
             'associatedModel' => $billetterie,
         ));
-        return /* back(); */redirect()->route('index.cart');
+
+        return redirect()->route('user.panier.index');
     }
 
     public function index(){
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
+
         return view('user-auth.panier')->with('billetteries',$billetteries);
     }
 
@@ -39,8 +41,8 @@ class CartController extends Controller
                 'relative' => false,
                 'value' => request('quantity')
             )
-        ]
-        );
-        return \redirect()->route('user.checkout');
+        ]);
+
+        return \redirect()->route('user.paiement.index');
     }
 }

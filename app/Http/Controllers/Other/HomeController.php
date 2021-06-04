@@ -9,13 +9,10 @@ class HomeController extends Controller
 {
     public function index(){
 
-        if (auth()->user() == null)
-            return view('home.index');
-
-        else if(auth()->user() !== null && auth()->user()->role == 1)
+        if(auth()->user() !== null && auth()->user()->role == 1)
             return redirect('/tableau-de-bord');
 
         else
-            return view('home.index');
+            return view('other.index');
     }
 }

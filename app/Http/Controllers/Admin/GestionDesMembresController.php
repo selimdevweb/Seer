@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 
-class UtilisateurController extends Controller
+class GestionDesMembresController extends Controller
 {
-    /**
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -94,7 +94,7 @@ class UtilisateurController extends Controller
             'status' => $request->valider,
         ]);
 
-        return redirect()->route('admin.utilisateur');
+        return redirect()->route('admin.gestion-des-membres.index');
     }
 
     /**
@@ -114,7 +114,7 @@ class UtilisateurController extends Controller
         DB::table('files')->where('user_id', $id)->delete();
         File::delete($image);
 
-        return redirect()->route('admin.utilisateur')->with('message', 'Ce pdf est bien supprimé');
+        return redirect()->route('admin.gestion-des-membres.index')->with('message', 'Ce pdf est bien supprimé');
     }
 
     /**

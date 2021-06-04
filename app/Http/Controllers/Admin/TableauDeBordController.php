@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-/* use Illuminate\Http\Request; */
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class AdminDashboardController extends Controller
+class TableauDeBordController extends Controller
 {
     public function index(){
         if (auth()->user()->role==1){

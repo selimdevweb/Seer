@@ -30,7 +30,7 @@
 
         @if (!$files->count() > 0)
                 <div class="main__form">
-                    <form action="{{ route('file.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('user.profil.create') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-3">
@@ -94,7 +94,7 @@
                                 <p>Il n'ya plus de colis en stock</p>
 
                             @elseif ($billetterie->quantite>0)
-                                <a href="{{ route('add.cart', $billetterie->id) }}">Ajouter au panier</a>
+                                <a href="{{ route('user.panier.index', $billetterie->id) }}">Ajouter au panier</a>
 
                             @endif
                         </div>

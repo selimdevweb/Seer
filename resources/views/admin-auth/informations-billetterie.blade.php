@@ -19,7 +19,7 @@
         @if ($seerInfos == null)
             <div class="d-flex justify-content-center">
                 <div class="main__form admin_card">
-                    <form action="{{ route('create_infos') }}" method="post">
+                    <form action="{{ route('admin.informations-billetterie.create') }}" method="post">
                         @csrf
 
                         <textarea name="description" placeholder="Entrez une description"></textarea>
@@ -32,12 +32,12 @@
         @elseif($seerInfos != null)
         <div class="d-flex justify-content-center">
             <div class="main__form admin_card">
-                <form action="{{ route('update_infos', $seerInfos->id) }}" method="post">
+                <form action="{{ route('admin.informations-billetterie.update', $seerInfos->id) }}" method="post">
                     @csrf
 
-                    <textarea name="description" placeholder="Entrez une description">{{ $seer_infos->description }}</textarea>
-                    <input type="text" name="adresse" placeholder="Entrez une adresse" value="{{ $seer_infos->adresse }}">
-                    <input type="submit" class="admin_buttons_primary" value="Créér">
+                    <textarea name="description" placeholder="Entrez une description">{{ $seerInfos->description }}</textarea>
+                    <input type="text" name="adresse" placeholder="Entrez une adresse" value="{{ $seerInfos->adresse }}">
+                    <input type="submit" class="admin_buttons_primary" value="Mettre à jour">
                 </form>
             </div>
         </div>

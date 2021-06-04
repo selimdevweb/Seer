@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Other;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminLogoutController extends Controller
+class DeconnexionController extends Controller
 {
     public function destroy(){
 
-        if (auth()->user()->role==1)
+        if (auth()->user())
             auth()->logout();
 
         return redirect('/');

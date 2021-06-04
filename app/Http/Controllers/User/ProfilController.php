@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\User;
 
+use App\Models\File;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class ProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,7 +32,7 @@ class DashboardController extends Controller
             $seerInfos = DB::table('seer_infos')
             ->first();
 
-            return view('user-auth.dashboard')->with(
+            return view('user-auth.profil')->with(
                 [
                     'files' => $files,
                     'billeteries' =>$billetteries,
@@ -47,9 +49,31 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $request->validate([
+            'file_path' => 'required|mimes:pdf|max:2000000',
+            'rgpd' => 'required'
+        ]);
+
+        $nom = $_FILES['file_path']['name'];
+
+        $date = date('m/d/Y');
+        $newpdf = $nom;
+
+        $request->file_path->move(public_path('pdf'), $newpdf);
+
+        File::create([
+            'file_path' => $newpdf,
+            'user_id' => auth()->user()->id,
+        ]);
+
+        User::where('id', auth()->user()->id)
+        ->update([
+            'status' => 0
+        ]);
+
+        return back()->with('message', 'Votre document est transféré vers les administrateurs');
     }
 
     /**
@@ -60,32 +84,22 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-
-            /* valider ce que l'on reçoit  */
             $request->validate([
                 'rgpd' => 'required',
                 'image' => 'required|mimes:pdf|max:5048'
             ]);
 
-            /* donnner un id uniuqe à l'image avec le chemin et l'extension */
             $newImageName = uniqid().'-'.$request->title.'.'.$request->image->extension();
 
-            /* déplacer l'image dans le dossier image */
             $request->image->move(public_path('images'), $newImageName);
 
-            /* création d'un slug */
-
-            /* création d'une publication dans la base de donnée   */
             Post::create([
                 'rgpd' => $request->input('rgpd'),
                 'image_path' => $newImageName,
                 'user_id' => auth()->user()->id,
             ]);
 
-            /* afficage de confirmation */
-
             return redirect('/')->with('message', 'Vos Documents sont bien envoyés');
-
     }
 
     /**

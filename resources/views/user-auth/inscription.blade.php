@@ -9,7 +9,7 @@
         <div class="main__content">
             <h1>Inscription</h1>
             <div class="main__form">
-                <form action="{{ route('inscription.store') }}" method="POST">
+                <form action="{{ route('user.inscription.store') }}" method="POST">
                     @csrf
 
                     <div class="mb-3">

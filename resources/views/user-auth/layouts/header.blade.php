@@ -19,7 +19,7 @@
                     @endguest
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('connexion.index') }}">Connexion</a>
+                            <a class="nav-link" href="{{ route('other.connexion.index') }}">Connexion</a>
                         </li>
                     @endguest
                     @auth
@@ -30,7 +30,7 @@
 
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.deconnexion.destroy') }}">Déconnexion</a>
+                            <a class="nav-link" href="{{ route('other.deconnexion.destroy') }}">Déconnexion</a>
                         </li>
                     @endauth
                 </ul>
@@ -39,7 +39,8 @@
                     @auth
 
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('index.cart') }}"><i class="fas fa-shopping-cart"></i> {{ \Cart::session(auth()->user()->id)->getTotalQuantity() }}</a>
+                            {{-- corriger route --}}
+                            <a class="nav-link" href="{{ route('user.panier.index') }}"><i class="fas fa-shopping-cart"></i> {{ \Cart::session(auth()->user()->id)->getTotalQuantity() }}</a>
                         </li>
 
                     @endauth

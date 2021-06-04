@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class SeerInfosController extends Controller
+class InformationsBilletterieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -72,11 +72,11 @@ class SeerInfosController extends Controller
      */
     public function edit($id)
     {
-        $infos = DB::table('seer_infos')
+        /* $infos = DB::table('seer_infos')
         ->where('id', $id)
         ->first();
 
-        return view('admin_auth.seer_infos')->with('infos', $infos);
+        return view('admin_auth.seer_infos')->with('infos', $infos); */
     }
 
     /**
@@ -88,12 +88,13 @@ class SeerInfosController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'description' => 'required',
             'adresse' => 'required',
         ]);
 
-        Seer_infos::where('id', $request->id)
+        Seer_infos::where('id', $id)
         ->update([
             'description' => $request->input('description'),
             'adresse' => $request->input('adresse'),
@@ -110,7 +111,6 @@ class SeerInfosController extends Controller
      */
     public function destroy($id)
     {
-        /* $id ->delete();
-        return redirect('/tableau-de-bord'); */
+
     }
 }

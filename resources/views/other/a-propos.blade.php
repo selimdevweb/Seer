@@ -1,11 +1,12 @@
 @extends('user-auth.layouts.app')
 
 @section('title')
-    Seer ?
+    Seer | A propos
 @endsection
 
 @section('content')
-@include('layouts.seer_nav')
+    @include('user-auth.layouts.seer-nav')
+
     <div class="d-flex justify-content-center">
         <h1 class="text-secondary">?</h1>
         @if (session()->has('message'))
