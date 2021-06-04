@@ -17,12 +17,6 @@ class AdminDashboardController extends Controller
             ->take(1)
             ->get();
 
-/*             $users = DB::table('users')
-            ->join('contacts', 'users.id', '=', 'contacts.user_id')
-            ->join('orders', 'users.id', '=', 'orders.user_id')
-            ->select('users.*', 'contacts.phone', 'orders.price')
-            ->get(); */
-
             return view('admin-auth.tableau-de-bord')->with('billetteries', $billetteries);
         }
         else

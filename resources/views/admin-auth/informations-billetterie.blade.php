@@ -16,7 +16,7 @@
             </div>
         @endif
 
-        @if ($seer_infos == null)
+        @if ($seerInfos == null)
             <div class="d-flex justify-content-center">
                 <div class="main__form admin_card">
                     <form action="{{ route('create_infos') }}" method="post">
@@ -28,10 +28,11 @@
                     </form>
                 </div>
             </div>
-        @elseif($seer_infos != null)
+
+        @elseif($seerInfos != null)
         <div class="d-flex justify-content-center">
             <div class="main__form admin_card">
-                <form action="{{ route('update_infos', $seer_infos->id) }}" method="post">
+                <form action="{{ route('update_infos', $seerInfos->id) }}" method="post">
                     @csrf
 
                     <textarea name="description" placeholder="Entrez une description">{{ $seer_infos->description }}</textarea>

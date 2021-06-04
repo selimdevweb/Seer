@@ -16,13 +16,10 @@ class SeerInfosController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        return view('admin-auth.informations-complementaires');
-=======
-        $seer_infos = DB::table('seer_infos')
+        $seerInfos = DB::table('seer_infos')
         ->first();
-        return view('admin_auth.seer-infos')->with('seer_infos', $seer_infos);
->>>>>>> 64d1c224f127762e42fc0bba4d5d3bddf3d506d3
+
+        return view('admin-auth.informations-billetterie')->with('seerInfos', $seerInfos);
     }
 
     /**
@@ -102,11 +99,7 @@ class SeerInfosController extends Controller
             'adresse' => $request->input('adresse'),
         ]);
 
-<<<<<<< HEAD
-        return redirect('/tableau-de-bord'); */
-=======
-        return back();
->>>>>>> 64d1c224f127762e42fc0bba4d5d3bddf3d506d3
+        return redirect('/tableau-de-bord');
     }
 
     /**

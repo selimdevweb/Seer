@@ -123,11 +123,8 @@ class UtilisateurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*  public function destroy(File $id)
+    public function destroy(File $id)
     {
-        $image = public_path('pdf/').$product->cover_img;
-        File::delete($image);
-        $product ->delete();
-        return redirect()->route('admin_dashboard')->with('message', 'Votre publication est bien supprimé ');
-    } */
+
+    }
 }

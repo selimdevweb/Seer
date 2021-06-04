@@ -80,20 +80,25 @@
                         @endforeach
                     </article>
 
-                   @foreach ($billeteries as $billetterie)
-                   <div class="main__cardBilletterie">
-                           <h2>Colis secs du : {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }} {{ $billetterie->prix }}€</h2>
-                           <img src="{{ asset('images/colis-seer.jpg') }}" >
-                           <p>{{ $seer_infos->description }}</p>
-                           <h6> <a href="https://www.google.com/maps/place/{{ $seer_infos->adresse }}" target="_blank">{{ $seer_infos->adresse }}</a></h6>
-                           <input type="number" name="quantity" value="1">
-                           @if ($billetterie->quantite<1)
-                           Il n'ya plus de colis en stock
-                           @elseif ($billetterie->quantite>0)
-                           <a href="{{ route('add.cart', $billetterie->id) }}">Ajouter au panier</a>
-                           @endif
-                   </div>
-                @endforeach
+                    @foreach ($billeteries as $billetterie)
+                        <div class="main__cardBilletterie">
+                            <h2>Colis secs du : {{ \Carbon\Carbon::parse($billetterie->date)->translatedFormat('d/m/Y') }} {{ $billetterie->prix }}€</h2>
+                            <img src="{{ asset('images/colis-seer.jpg') }}" >
+                            <p>{{ $seerInfos->description }}</p>
+                            <h6>
+                                <a href="https://www.google.com/maps/place/{{ $seerInfos->adresse }}" target="_blank">{{ $seerInfos->adresse }}</a>
+                            </h6>
+                            <input type="number" name="quantity" value="1">
+
+                            @if ($billetterie->quantite<1)
+                                <p>Il n'ya plus de colis en stock</p>
+
+                            @elseif ($billetterie->quantite>0)
+                                <a href="{{ route('add.cart', $billetterie->id) }}">Ajouter au panier</a>
+
+                            @endif
+                        </div>
+                    @endforeach
                 </article>
             </div>
         @endif

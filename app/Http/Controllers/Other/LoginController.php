@@ -18,11 +18,10 @@ class LoginController extends Controller
             'password'=>'required'
         ]);
 
-
-            /* Optimisation  role*/
+        /* Optimisation  role*/
         if (!auth()->attempt($request->only('email', 'password'), $request->remember))
             return back()->with('status','Identifiants ou mot de passe invalides');
 
-        return redirect()->route('user.dashboard');
+        return redirect()->route('user.profil.index');
     }
 }

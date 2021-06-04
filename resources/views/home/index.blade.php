@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-{{-- @include('layouts.seer_nav') --}}
+@include('user-auth.layouts.seer-nav')
     <div class="d-flex justify-content-center">
         <h1 class="text-secondary">Accueil SEER</h1>
         @if (session()->has('message'))

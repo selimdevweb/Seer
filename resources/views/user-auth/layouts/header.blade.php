@@ -14,23 +14,23 @@
                     </li>
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('inscription') }}">Inscription</a>
+                            <a class="nav-link" href="{{ route('user.inscription.index') }}">Inscription</a>
                         </li>
                     @endguest
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Connexion</a>
+                            <a class="nav-link" href="{{ route('connexion.index') }}">Connexion</a>
                         </li>
                     @endguest
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.dashboard') }}">Mon profil</a>
+                            <a class="nav-link" href="{{ route('user.profil.index') }}">Mon profil</a>
                         </li>
                     @endauth
 
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.logout') }}">Déconnexion</a>
+                            <a class="nav-link" href="{{ route('user.deconnexion.destroy') }}">Déconnexion</a>
                         </li>
                     @endauth
                 </ul>
@@ -48,3 +48,4 @@
         </div>
     </nav>
 </header>
+
