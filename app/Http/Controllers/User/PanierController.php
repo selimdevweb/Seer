@@ -35,7 +35,7 @@ class PanierController extends Controller
     }
 
     public function update($id){
-        \Cart::session(auth()->user()->id)->update($id),[
+        \Cart::session(auth()->user()->id)->update($id)[
 
             'quantity' => array(
                 'relative' => false,
