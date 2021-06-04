@@ -14,6 +14,7 @@ use App\Http\Controllers\Other\DeconnexionController;
 use App\Http\Controllers\User\ProfilController;
 use App\Http\Controllers\Admin\BilletterieController;
 use App\Http\Controllers\User\PanierController;
+use App\Http\Controllers\User\PaiementController;
 
 /* ADMIN */
 use App\Http\Controllers\Admin\TableauDeBordController;
@@ -75,8 +76,8 @@ use App\Http\Controllers\Admin\InformationsBilletterieController;
     Route::get('/panier/supprimer/{id}', [PanierController::class, 'destroy'])->name('user.panier.destroy')->middleware('auth');
 
     // PAIEMENT
-    Route::get('/paiement/{token}', [CheckoutController::class, 'index'])->name('user.paiement.index')->middleware('auth');
-    Route::post('/paiement/{id}', [CheckoutController::class, 'makePayment'])->name('make-payment')->middleware('auth');
+    Route::get('/paiement/{token}', [PaiementController::class, 'index'])->name('user.paiement.index')->middleware('auth');
+    Route::post('/paiement/{id}', [PaiementController::class, 'makePayment'])->name('make-payment')->middleware('auth');
 
 /* ADMIN */
 
