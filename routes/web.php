@@ -6,16 +6,16 @@ use App\Http\Controllers\CartController;
 
 /* OTHER */
 use App\Http\Controllers\Other\HomeController;
-use App\Http\Controllers\User\PanierController;
-use App\Http\Controllers\User\ProfilController;
+use App\Http\Controllers\User\InscriptionController;
+use App\Http\Controllers\Other\ConnexionController;
+use App\Http\Controllers\Other\DeconnexionController;
 
 /* USER */
-use App\Http\Controllers\Other\ConnexionController;
-use App\Http\Controllers\User\InscriptionController;
+use App\Http\Controllers\User\ProfilController;
 use App\Http\Controllers\Admin\BilletterieController;
+use App\Http\Controllers\User\PanierController;
 
 /* ADMIN */
-use App\Http\Controllers\Other\DeconnexionController;
 use App\Http\Controllers\Admin\TableauDeBordController;
 use App\Http\Controllers\Admin\GestionDesMembresController;
 use App\Http\Controllers\Admin\InformationsBilletterieController;

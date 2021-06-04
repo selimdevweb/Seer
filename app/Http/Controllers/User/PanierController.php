@@ -41,6 +41,9 @@ class PanierController extends Controller
                 'relative' => false,
                 'value' => request('quantity')
             )
+
+            $token = Str::random(60);
+            return \redirect()->route('user.paiement.index', $token)->with('token', $token);
         ]);
 
         return \redirect()->route('user.paiement.index');
