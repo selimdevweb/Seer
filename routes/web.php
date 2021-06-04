@@ -11,6 +11,7 @@ use App\Http\Controllers\Other\ConnexionController;
 use App\Http\Controllers\Other\DeconnexionController;
 
 /* USER */
+use App\Http\Controllers\User\MotDePasseController;
 use App\Http\Controllers\User\ProfilController;
 use App\Http\Controllers\Admin\BilletterieController;
 use App\Http\Controllers\User\PanierController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\User\PaiementController;
 use App\Http\Controllers\Admin\TableauDeBordController;
 use App\Http\Controllers\Admin\GestionDesMembresController;
 use App\Http\Controllers\Admin\InformationsBilletterieController;
+use App\Http\Controllers\User\NouveauMotDePasseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -59,11 +62,11 @@ use App\Http\Controllers\Admin\InformationsBilletterieController;
     Route::post('/inscription', [InscriptionController::class, 'store'])->name('user.inscription.store')->middleware('guest');
 
     // MOT DE PASSE OUBLIE
-    Route::get('/mot-de-passe-oublie', [ForgotPasswordController::class, 'getEmail'])->name('index.password');
-    Route::post('/mot-de-passe-oublie', [ForgotPasswordController::class, 'postEmail'])->name('store.password');
+    Route::get('/mot-de-passe-oublie', [MotDePasseController::class, 'getEmail'])->name('user.mot-de-passe-oublie.getEmail');
+    Route::post('/mot-de-passe-oublie', [MotDePasseController::class, 'postEmail'])->name('store.password');
 
-    Route::get('/nouveau-mot-de-passe/{token}', [ResetPasswordController::class, 'getPassword'])->name('index.reset');
-    Route::post('/nouveau-mot-de-passe', [ResetPasswordController::class, 'updatePassword'])->name('store.reset');
+    Route::get('/nouveau-mot-de-passe/{token}', [NouveauMotDePasseController::class, 'getPassword'])->name('user.nouveau-mot-de-passe.index');
+    Route::post('/nouveau-mot-de-passe', [NouveauMotDePasseController::class, 'updatePassword'])->name('user.nouveau-mot-de-passe.store');
 
     // PROFIL
     Route::get('/profil', [ProfilController::class, 'index'])->name('user.profil.index')->middleware('auth');

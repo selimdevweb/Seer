@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 
-class ResetPasswordController extends Controller
+class NouveauMotDePasseController extends Controller
 {
     public function getPassword($token) {
-        return view('forgot_password.reset', ['token' => $token]);
+        return view('user-auth.mot-de-passe-oublie.nouveau-mot-de-passe', ['token' => $token]);
     }
 
     public function updatePassword(Request $request)
@@ -33,7 +34,7 @@ class ResetPasswordController extends Controller
 
         DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-        return redirect('/')->with('message', 'votre mot de passe a bien été mis à jour !');
+        return redirect('/')->with('message', 'Félicitations ! Vous avez créé un nouveau mot de passe pour votre compte');
 
     }
 }

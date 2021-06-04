@@ -1,22 +1,23 @@
 <?php
-namespace App\Http\Controllers;
+
+namespace App\Http\Controllers\User;
 
 use DB;
 use Mail;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ForgotPasswordController extends Controller
+class MotDePasseController extends Controller
 {
     public function getEmail()
     {
-        return view('forgot_password.index');
+        return view('user-auth.mot-de-passe-oublie.index');
     }
 
     public function postEmail(Request $request)
     {
-
         $request->validate([
             'email' => 'required|email|exists:users',
         ]);
@@ -27,11 +28,11 @@ class ForgotPasswordController extends Controller
             ['email' => $request->email, 'token' => $token, 'created_at' => Carbon::now()]
         );
 
-        Mail::send('forgot_password.verify', ['token' => $token], function($message) use($request){
+        Mail::send('user-auth.mot-de-passe-oublie.mail', ['token' => $token], function($message) use($request){
             $message->to($request->email);
-            $message->subject('Reset Password Notification');
+            $message->subject('Modification du mot de passe');
         });
 
-        return redirect('/')->with('message', 'Un mail de réinitialisation vous a été envoyé merci de consulter votre boite mail');
+        return redirect('/')->with('message', 'Nous vous avons envoyé un email avec les étapes pour réinitialiser votre mot de passe. ');
     }
 }

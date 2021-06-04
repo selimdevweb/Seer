@@ -94,7 +94,7 @@
                                 <p>Il n'ya plus de colis en stock</p>
 
                             @elseif ($billetterie->quantite>0)
-                                <a href="{{ route('user.panier.index', $billetterie->id) }}">Ajouter au panier</a>
+                                <a href="{{ route('user.panier.add', $billetterie->id) }}">Ajouter au panier</a>
 
                             @endif
                         </div>

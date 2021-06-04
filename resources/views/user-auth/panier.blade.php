@@ -25,7 +25,7 @@
                             <td scope="row">{{ \Cart::get($billetterie->id)->getPriceSum()}} €</td>
                             <td scope="row">
                                 <div class="main__form">
-                                    <form action="{{ route('cart.update', $billetterie->id) }}">
+                                    <form action="{{ route('user.panier.update', $billetterie->id) }}">
                                         @csrf
 
                                         <input type="number" name="quantity" value="{{ $billetterie->quantity }}">

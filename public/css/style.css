@@ -143,6 +143,10 @@ input, button, textarea {
     background-color: #4088D6;
 }
 
+.main__MotDePasse input{
+    width: 400px !important;
+}
+
 /* 4 - Table */
 
 .main__tableau table {
@@ -226,6 +230,13 @@ input, button, textarea {
 
     .main__cardBilletterie input {
         width: 200px !important;
+    }
+
+    .main__MotDePasse input{
+        width: 250px !important;
+    }
+    .main__MotDePasse h1{
+        text-align: center;
     }
 
     /* 3 - Form */

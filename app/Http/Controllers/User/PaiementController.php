@@ -19,17 +19,20 @@ class PaiementController extends Controller
     public function index($token)
     {
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
+
         return view('user-auth.paiement')->with('billetteries',$billetteries);
     }
 
 
     public function makePayment(Request $request, $id)
     {
+
         $billetteries = \Cart::session(auth()->user()->id)->getContent();
 
         foreach($billetteries as $billetterie){
             $prix = $billetterie->price * \Cart::session(auth()->user()->id)->getTotalQuantity();
         }
+
         Stripe::setApiKey('sk_test_51Iuxs5G7x6GsCgKuEb0imU0BEwom4saWBDQ4VXYgOadumdkdVzg34zNfBVT3ZwJHgRYPQ1DPOcLBxJv8oh50eIJT00qWnQVWAU');
         Charge::create ([
                 "amount" => $prix * 100,
@@ -56,7 +59,7 @@ class PaiementController extends Controller
 
 
 
-        return redirect()->route('user.dashboard')->with('message', 'Votre paiement de '.$prix . '€ est bien enregistré');
+        return redirect()->route('user.profil.index')->with('message', 'Votre paiement de '.$prix . '€ est bien enregistré');
     }
 
     /**

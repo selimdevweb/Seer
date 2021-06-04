@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('user-auth.layouts.app')
 
 @section('title')
     Seer | Mot de passe oublié
@@ -16,7 +16,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="/mot-de-passe-oublie">
+            <form method="POST" action="{{ route('user.mot-de-passe-oublie.getEmail') }}">
                 @csrf
 
                 <div class="mb-3">

@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <a  class=" pb-2" href="{{ route('index.password') }}">Mot de passe oublié ?</a>
+                        <a  class=" pb-2" href="{{ route('user.mot-de-passe-oublie.getEmail') }}">Mot de passe oublié ?</a>
                     </div>
             </form>
         </div>
