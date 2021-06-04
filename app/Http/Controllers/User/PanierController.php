@@ -35,17 +35,15 @@ class PanierController extends Controller
     }
 
     public function update($id){
-        \Cart::session(auth()->user()->id)->update($id),[
+        \Cart::session(auth()->user()->id)->update($id,[
 
             'quantity' => array(
                 'relative' => false,
                 'value' => request('quantity')
             )
-
-            $token = Str::random(60);
-            return \redirect()->route('user.paiement.index', $token)->with('token', $token);
-        ]);
-
-        return \redirect()->route('user.paiement.index');
+        ]
+          );
+          $token = Str::random(60);
+          return \redirect()->route('user.checkout', $token)->with('token', $token);
     }
 }
